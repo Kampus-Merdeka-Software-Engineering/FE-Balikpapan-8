@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/navbar.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+    />
+    <title>RobinCode</title>
+  </head>
+<body>
+    <nav class="navbar">
+        <div class="brand-title">
+            <a href="../views/home.html" class="navbar-brand">
+                Robin<span class="navbar-brand-teks2">Code</span>
+              </a>
+        </div>
+
+        <a href="#" class="toggle-button">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </a>
+
+        <div class="navbar-links">
+            <ul>
+                <li><a href="../views/home.html" id="homeLink">Home</a></li>
+                <li><a href="../views/products.html" id="productsLink">Products</a></li>
+                <li><a href="../views/about.html" id="aboutLink">About</a></li>
+            </ul>
+        </div>
+
+        <div class="search-and-button">
+            <div class="search-container">
+                <input
+                  type="text"
+                  class="search-input"
+                  id="searchInput"
+                  placeholder="Search"
+                />
+                <i class="fas fa-search search-icon" id="searchIcon"></i>
+              </div>
+    
+              <button class="get-started-button">Get Started</button>
+        </div>
+        
+    </nav>
+
+    <script src="../script/navbar.js"></script>
+</body>
+</html>

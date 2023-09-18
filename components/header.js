@@ -7,86 +7,158 @@ class Header extends HTMLElement {
     this.innerHTML = `
       <style>
       .navbar {
+        padding: 0px 32px;
         display: flex;
+        position: relative;
         justify-content: space-between;
         align-items: center;
-        background: var(--primaryColor);
+        background-color: var(--primaryColor);
         box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-        padding: 24px 20px; /* Adjust padding for mobile */
-      }
+        border-bottom: 2px solid #fff;
+    }
     
-      .navbar-brand {
-        color: var(--accentColorDark);
-        font-size: 25px;
+    .brand-title {
+        font-size: 2rem;
+        margin: 1rem;
         font-weight: 900;
+        transition: transform 0.3s ease-in-out;
+        -webkit-transition: transform 0.3s ease-in-out;
+        -moz-transition: transform 0.3s ease-in-out;
+        -ms-transition: transform 0.3s ease-in-out;
+        -o-transition: transform 0.3s ease-in-out;
+    }
+    
+    .brand-title a {
         text-decoration: none;
-        transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
-      }
+        display: block;
+        color: var(--accentColorDark);
+    }
     
-      .navbar-brand-teks2 {
+    .brand-title span {
         color: var(--secondaryColor);
-      }
+    }
     
-      .navbar-brand:hover {
+    .brand-title:hover {
         transform: scale(1.1);
-      }
+        -webkit-transform: scale(1.1);
+        -moz-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        -o-transform: scale(1.1);
+    }
     
-      .navbar-menu {
+    .brand-title:active {
+        transform: scale(0.9);
+        -webkit-transform: scale(0.9);
+        -moz-transform: scale(0.9);
+        -ms-transform: scale(0.9);
+        -o-transform: scale(0.9);
+    }
+    
+    .navbar-links {
+        height: 100%;
+    }
+    
+    .navbar-links ul {
         display: flex;
-        align-items: flex-start;
-        gap: 59px;
-      }
+        margin: 0;
+        padding: 0;
+    }
     
-      /* Add an initial horizontal line under the navbar menu items */
-      .navbar-menu li a {
-        position: relative;
+    
+    .navbar-links li a {
+        font-size: 16px;
+        font-weight: 600;
+        display: block;
+        text-decoration: none;
+        color: rgba(0, 0, 0, 0.50);
+        margin-right: 60px;
         overflow: hidden;
-      }
+        position: relative;
+        transition: color 0.3s ease;
+    }
+
+    .navbar-links li a.active {
+      color: var(--accentColorDark);
+      border-bottom: 2px solid var(--accentColorDark);
+  }
     
-      .navbar-menu li a::after {
+    .navbar-links li a:hover {
+        color: var(--accentColorDark);
+    }
+    
+    .navbar-links li a::after {
         content: "";
         position: absolute;
-        left: 0;
-        bottom: -2px;
         width: 0;
-        height: 2px;
+        height: 4px;
+        bottom: -2px;
+        left: 0;
         background-color: var(--accentColorDark);
-        transition: width 0.3s ease-in-out;
-      }
+        transition: width 0.3s ease;
+    }
     
-      /* Animate the line width on hover */
-      .navbar-menu li a:hover::after {
+    .navbar-links li a:hover::after {
         width: 100%;
-      }
+    }
     
-      /* Change text color on hover */
-      .navbar-menu li a:hover {
-        color: var(--accentColorDark);
-      }
+    .toggle-button {
+        position: absolute;
+        top: 1.20rem;
+        right: 1rem;
+        display: none;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 21px;
+        transition: transform 0.3s ease-in-out, content 0.3s ease-in-out, font-siz  e 0.3s ease-in-out;
+        -webkit-transition: transform 0.3s ease-in-out, content 0.3s ease-in-out, font-siz  e 0.3s ease-in-out;
+        -moz-transition: transform 0.3s ease-in-out, content 0.3s ease-in-out, font-siz  e 0.3s ease-in-out;
+        -ms-transition: transform 0.3s ease-in-out, content 0.3s ease-in-out, font-siz  e 0.3s ease-in-out;
+        -o-transition: transform 0.3s ease-in-out, content 0.3s ease-in-out, font-siz  e 0.3s ease-in-out;
+    }
     
-      .navbar-brand:active {
-        transform: scale(0.95);
-        transition: transform 0.1s;
-      }
+    .toggle-button.active::before {
+      content: "×";
+      font-size: 40px;
+      font-weight: bold;
+      color: var(--accentColorDark);
+      transform: rotate(90deg);
+      -webkit-transform: rotate(90deg);
+      -moz-transform: rotate(90deg);
+      -ms-transform: rotate(90deg);
+      -o-transform: rotate(90deg);
+  }
+  
+
+    .toggle-button .bar {
+        height: 3px;
+        width: 100%;
+        background-color: var(--accentColorDark);
+        border-radius: 10px;
+    }
     
-      .search-container {
+    .search-and-button {
+        display: flex;
+    }
+    
+    .search-container {
         width: 292px;
         height: 50px;
         border-radius: 1000px;
         background: transparent;
         display: flex;
-        margin-right: 20px;
+        margin-right: 50px;
         position: relative;
         overflow: hidden;
         border: 2px solid var(--accentColorDark);
         transition: background 0.3s ease-in-out, border 0.3s ease-in-out;
-      }
+    }
     
-      .search-input::placeholder {
+    .search-input::placeholder {
         color: rgba(0, 0, 0, 0.30);
-      }
+    }
     
-      .search-input {
+    .search-input {
         border: none;
         width: 100%;
         height: 100%;
@@ -95,22 +167,23 @@ class Header extends HTMLElement {
         color: var(--accentColorDark);
         font-size: 16px;
         outline: none;
-        cursor: pointer;
-      }
+        cursor: auto;
+    }
     
-      .search-container:hover {
+    .search-container:hover {
         border: 2px solid var(--secondaryColor);
-      }
+    }
     
-      .search-icon {
+    .search-icon {
         font-size: 16px;
         margin: 16px 18px;
         color: var(--accentColorDark);
         opacity: 0.3;
-      }
+    }
     
-      .get-started-button {
-        width: 159px;
+    
+    .get-started-button {
+        width: 160px;
         height: 50px;
         border-radius: 20px;
         background: var(--accentColorDark);
@@ -119,143 +192,182 @@ class Header extends HTMLElement {
         font-weight: 500;
         transition: background 0.3s, color 0.3s, transform 0.3s, cursor 0.3s;
         cursor: pointer;
-      }
+    }
     
-      .get-started-button:hover {
+    .get-started-button:hover {
         background: var(--primaryColor);
         color: var(--accentColorDark);
         transform: scale(1.05);
         cursor: pointer;
-      }
+    }
     
-      .get-started-button:active {
+    .get-started-button:active {
         transform: scale(0.95);
         transition: transform 0.1s;
-      }
+    }
     
-      @media screen and (max-width: 720px) {
-        /* Navbar styles for mobile */
+    /* Responsive Mobile */
+    
+    @media (max-width: 720px) {
         .navbar {
-          padding: 10px 20px; /* Reduce padding for mobile */
+            padding: 0px;
+            flex-direction: column;
+            align-items: flex-start;
         }
-      
-        .navbar-brand {
-          font-size: 20px;
-          color: var(--accentColorDark); /* Change brand color */
-        }
-      
-        .navbar-menu {
-          display: none;
-          flex-direction: column;
-          position: absolute;
-          top: 70px;
-          right: 20px;
-          background: var(--primaryColor);
-          box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-          border-radius: 10px; /* Add border radius */
-        }
-      
-        .navbar-menu.show-mobile {
-          display: flex;
-        }
-      
-        .navbar-menu li {
-          margin-bottom: 15px; /* Add spacing between mobile menu items */
-        }
-      
-        /* Add a mobile menu toggle button */
-        .mobile-menu-toggle {
-          display: block;
-          font-size: 24px;
-          color: var(--accentColorDark);
-          cursor: pointer;
-        }
-      
-        /* Change text color on hover */
-        .navbar-menu li a:hover {
-          color: var(--accentColorDark);
-        }
-      }
-      
     
-      @media screen and (min-width: 721px) and (max-width: 1080px) {
-        /* Navbar styles for tablet */
+        .toggle-button {
+            display: flex;
+        }
+    
+        .navbar-links {
+            display: none;
+            width: 100%;
+        }
+    
+        .navbar-links ul {
+            width: 100%;
+            flex-direction: column;
+        }
+    
+        .navbar-links ul li {
+            text-align: center;
+        }
+    
+        .navbar-links ul li a {
+            padding: .5rem 1rem;
+        }
+    
+        .navbar-links.active {
+            display: flex;
+        }
+    
+        .search-and-button {
+            display: none;
+            width: 100%;
+        }
+    
+        .search-and-button.active {
+            padding: 20px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    
+        .search-form {
+            margin-top: 10px;
+        }
+    
+        .search-container {
+            width: 160px;
+        }
+    
+        .get-started-button {
+            margin-left: auto;
+            width: auto;
+        }
+    }
+    
+    /* Responsive Tablet */
+    @media (max-width: 1080px) {
         .navbar {
-          padding: 24px 72px;
+            flex-direction: column;
+            align-items: flex-start;
         }
     
-        .navbar-brand {
-          font-size: 25px;
+        .navbar-links {
+            margin-bottom: 1rem;
         }
     
-        /* ... (other tablet-specific styles) ... */
-      }
+    
+    }
       
       /* End Navbar */
       </style>
       <header>
       <nav class="navbar">
-        <a href="../views/home.html" class="navbar-brand">
-          Robin <span class="navbar-brand-teks2">Code</span>
-        </a>
-        <span class="mobile-menu-toggle" id="mobileMenuToggle">&#9776;</span>
-        <ul class="navbar-menu">
-          <li><a href="../views/home.html" id="homeLink">Home</a></li>
-          <li><a href="../views/products.html" id="productsLink">Products</a></li>
-          <li><a href="../views/about.html" id="aboutLink">About</a></li>
-        </ul>
-        <div class="search-container">
-          <input
-            type="text"
-            class="search-input"
-            id="searchInput"
-            placeholder="Search"
-          />
-          <i class="fas fa-search search-icon" id="searchIcon"></i>
-        </div>
-        <button class="get-started-button">Get Started</button>
-      </nav>
+      <div class="brand-title">
+          <a href="../views/home.html" class="navbar-brand">
+              Robin<span class="navbar-brand-teks2">Code</span>
+            </a>
+      </div>
+
+      <a href="#" class="toggle-button">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+      </a>
+
+      <div class="navbar-links">
+          <ul>
+              <li><a href="../views/home.html" id="homeLink">Home</a></li>
+              <li><a href="../views/products.html" id="productsLink">Products</a></li>
+              <li><a href="../views/about.html" id="aboutLink">About</a></li>
+          </ul>
+      </div>
+
+      <div class="search-and-button">
+          <div class="search-container">
+              <input
+                type="text"
+                class="search-input"
+                id="searchInput"
+                placeholder="Search"
+              />
+              <i class="fas fa-search search-icon" id="searchIcon"></i>
+            </div>
+  
+            <button class="get-started-button">Get Started</button>
+      </div>
+      
+  </nav>
+
     </header>
       `;
-      const mobileMenuToggle = document.getElementById("mobileMenuToggle");
-      const navbarMenu = document.querySelector(".navbar-menu");
+    window.onload = function () {
+      const toggleButton = document.getElementsByClassName("toggle-button")[0];
+      const navbarLinks = document.getElementsByClassName("navbar-links")[0];
+      const searchAndButton =
+        document.getElementsByClassName("search-and-button")[0];
 
-      mobileMenuToggle.addEventListener("click", () => {
-        navbarMenu.classList.toggle("show-mobile");
+      toggleButton.addEventListener("click", () => {
+        navbarLinks.classList.toggle("active");
+        searchAndButton.classList.toggle("active");
+        toggleButton.classList.toggle('active');
       });
+    };
 
-      // Define an array of menu items
-      const menuItems = document.querySelectorAll(".navbar-menu li a");
+    // Define an array of menu items
+    const menuItems = document.querySelectorAll(".navbar-links li a");
 
-      // Get the current page URL
-      const currentPageURL = window.location.href;
+    // Get the current page URL
+    const currentPageURL = window.location.href;
 
-      // Loop through the menu items and check if their href matches the current URL
-      menuItems.forEach((menuItem) => {
-        const menuItemURL = menuItem.getAttribute("href");
+    // Loop through the menu items and check if their href matches the current URL
+    menuItems.forEach((menuItem) => {
+      const menuItemURL = menuItem.getAttribute("href");
 
-        if (currentPageURL.endsWith(menuItemURL)) {
-          menuItem.classList.add("active");
-        } else {
-          menuItem.classList.remove("active");
-        }
-      });
-
-      // Add "active" class to the link corresponding to the active page
-      const homeLink = document.querySelector("#homeLink");
-      const productsLink = document.querySelector("#productsLink");
-      const aboutLink = document.querySelector("#aboutLink");
-
-      const currentPage = window.location.pathname;
-
-      if (currentPage.endsWith("home.html")) {
-        homeLink.classList.add("active");
-      } else if (currentPage.endsWith("products.html")) {
-        productsLink.classList.add("active");
-      } else if (currentPage.endsWith("about.html")) {
-        aboutLink.classList.add("active"); // Corrected from "aboutLink.classList add("active");"
+      if (currentPageURL.endsWith(menuItemURL)) {
+        menuItem.classList.add("active");
+      } else {
+        menuItem.classList.remove("active");
       }
+    });
+
+    // Add "active" class to the link corresponding to the active page
+    const homeLink = document.querySelector("#homeLink");
+    const productsLink = document.querySelector("#productsLink");
+    const aboutLink = document.querySelector("#aboutLink");
+
+    const currentPage = window.location.pathname;
+
+    if (currentPage.endsWith("home.html")) {
+      homeLink.classList.add("active");
+    } else if (currentPage.endsWith("products.html")) {
+      productsLink.classList.add("active");
+    } else if (currentPage.endsWith("about.html")) {
+      aboutLink.classList.add("active"); // Corrected from "aboutLink.classList add("active");"
     }
+  }
 }
 
 customElements.define("header-component", Header);
