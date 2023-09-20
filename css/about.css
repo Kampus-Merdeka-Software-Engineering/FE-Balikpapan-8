@@ -49,7 +49,8 @@ html, body {
 .about-header svg {
     position: absolute;
     top: 24px;
-    left: 100px;
+    left: 14%;
+    transform: translateX(-50%);
     z-index: 1;
 }
 
@@ -98,7 +99,8 @@ html, body {
 .our-team-header svg {
     position: absolute;
     top: 24px;
-    left: 900px;
+    left: 66%;
+    transform: translateX(-50%);
     z-index: 1;
 }
 
@@ -127,9 +129,7 @@ html, body {
 
 .team-cards:hover {
     transform: scale(1.05);
-    /* Membesarkan kartu saat dihover */
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
-    /* Menambah bayangan saat dihover */
 }
 
 .team-cards img {
@@ -174,41 +174,32 @@ html, body {
 
 /* End Our Team Section */
 
-/* CSS untuk ukuran layar lebih kecil (mobile) */
 @media screen and (max-width: 720px) {
     .about {
         margin: 20px 20px;
-        /* Atur margin yang lebih kecil untuk perangkat seluler */
     }
 
     .about-header {
         margin-bottom: 10px;
-        /* Atur margin yang lebih kecil untuk perangkat seluler */
     }
 
     .about-header h1 {
         font-size: 32px;
-        /* Mengurangi ukuran font untuk perangkat seluler */
         line-height: 36px;
     }
 
     .about-header svg {
-        left: 50px;
-        /* Atur posisi SVG lebih ke kiri untuk perangkat seluler */
+        left: 18%;
     }
 
     .about-content {
         flex-direction: column;
-        /* Atur tata letak kolom untuk konten di perangkat seluler */
     }
 
     .about-content p {
         width: auto;
-        /* Biarkan lebar paragraf disesuaikan secara otomatis */
         font-size: 18px;
-        /* Mengurangi ukuran font untuk perangkat seluler */
         margin-top: 20px;
-        /* Mengurangi margin atas */
     }
 
     .about-content img {
@@ -225,68 +216,52 @@ html, body {
 
     .our-team-header h1 {
         font-size: 32px;
-        /* Mengurangi ukuran font untuk perangkat seluler */
     }
 
-    .our-team-header svg {
-        left: 20px;
-        /* Atur posisi SVG lebih ke kiri untuk perangkat seluler */
-    }
 
     .team-cards {
         margin: 20px auto;
-        /* Pusatkan tim kartu di perangkat seluler */
     }
 }
 
-/* CSS untuk ukuran layar lebih besar (tablet) */
 @media screen and (max-width: 1080px) {
     .about {
         margin: 50px 50px;
-        /* Atur margin yang lebih kecil untuk tablet */
     }
 
     .about-header h1 {
         font-size: 40px;
-        /* Mengurangi ukuran font untuk tablet */
         line-height: 44px;
     }
 
     .about-header svg {
-        left: 70px;
-        /* Atur posisi SVG lebih ke kiri untuk tablet */
+        left: 16%;
     }
 
     .about-content p {
         width: auto;
-        /* Biarkan lebar paragraf disesuaikan secara otomatis */
         font-size: 20px;
-        /* Mengurangi ukuran font untuk tablet */
         margin-top: 30px;
-        /* Mengurangi margin atas */
+
     }
 
     .about-content img {
         width: 100%;
         height: auto;
-        border-radius: 250px 0px;
+        border-radius: 200px 0px;
         box-shadow: 6px 6px 4px 0px rgba(0, 0, 0, 0.25);
         margin-top: 30px;
-
-    }
+}
 
     .our-team-header h1 {
         font-size: 40px;
-        /* Mengurangi ukuran font untuk tablet */
     }
 
     .our-team-header svg {
-        left: 30px;
-        /* Atur posisi SVG lebih ke kiri untuk tablet */
+        left: 68%;
     }
 
     .team-cards {
         margin: 30px auto;
-        /* Pusatkan tim kartu di tablet */
     }
 }

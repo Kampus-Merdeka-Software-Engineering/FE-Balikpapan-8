@@ -34,14 +34,14 @@ html, body {
     align-items: center;
     text-align: center;
     position: relative;
-    margin-top: 96px;
+    margin-top: 48px; /* Ubah margin-top sesuai kebutuhan */
 }
 
 .our-products-header h1 {
-    font-size: 48px;
+    font-size: 36px; /* Sesuaikan ukuran font sesuai kebutuhan */
     font-weight: 900;
-    line-height: 50px;
-    letter-spacing: 2.88px;
+    line-height: 1.2;
+    letter-spacing: 1px; /* Sesuaikan jarak huruf sesuai kebutuhan */
     margin-bottom: 10px;
     position: relative;
     z-index: 2;
@@ -49,8 +49,9 @@ html, body {
 
 .our-products-header svg {
     position: absolute;
-    top: 24px;
-    left: 800px;
+    top: 18px;
+    left: 55%;
+    transform: translateX(-50%);
     z-index: 1;
 }
 
@@ -193,3 +194,60 @@ html, body {
 /* end-our-products */
 
 
+/* CSS untuk layar dengan lebar maksimum 720px (Mobile) */
+@media (max-width: 720px) {
+    .menu-products {
+      margin: 40px 0;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .our-products-header h1 {
+        font-size: 24px; /* Ubah ukuran font sesuai kebutuhan untuk layar mobile */
+      }
+  
+    .menu-products li {
+      margin-bottom: 16px;
+    }
+  
+    .products img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  
+  /* CSS untuk layar dengan lebar maksimum 1080px (Tablet) */
+  @media (max-width: 1080px) {
+    .menu-products {
+      margin: 40px 0;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .our-products-header svg {
+        left: 56%;
+    }
+
+    .our-products-header h1 {
+        font-size: 32px; /* Ubah ukuran font sesuai kebutuhan untuk layar tablet */
+      }
+  
+    .menu-products li {
+      margin-bottom: 16px;
+    }
+  }
+  
+  /* CSS untuk layar dengan lebar di atas 1080px (Desktop) */
+  @media (min-width: 1081px) {
+    .menu-products {
+      margin: 82px 144px;
+      flex-direction: row;
+      align-items: center;
+    }
+  
+    .menu-products li {
+      margin-right: 22px;
+      margin-bottom: 0;
+    }
+  }
+  
