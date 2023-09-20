@@ -1,0 +1,197 @@
+{
+    "products": [
+      {
+        "name": "Adicolor Classics Hoodie",
+        "type": "H&M",
+        "price": 19.99,
+        "imageSrc": "../Img/hoodie model.jpg",
+        "actions": [
+          {
+            "icon": "fas fa-heart",
+            "action": "Add to Favorites"
+          },
+          {
+            "icon": "fas fa-shopping-cart",
+            "action": "Add to Cart"
+          }
+        ],
+        "rating": 4.5,
+        "description": "The Adicolor Classics Hoodie is a versatile and stylish addition to your wardrobe. Crafted with care, this hoodie offers both comfort and durability. Its classic design and premium finish make it a timeless choice. Whether you're going for a casual look or layering up for colder weather, this hoodie has got you covered.",
+        "sizes": ["Small", "Medium", "Large", "Extra Large"],
+        "reviews": [
+          "This hoodie is incredibly comfortable and durable. I love its simple yet stylish design. It's perfect for chilly weather.",
+          "The Adicolor Classics Hoodie is a must-have. It's soft, warm, and the fit is just right. Highly recommended!",
+          "I'm really impressed with the quality of this hoodie. It's worth every penny."
+        ]
+      },
+      {
+        "name": "Blue Jeans",
+        "type": "Levi's",
+        "price": 20.5,
+        "imageSrc": "../Img/jeans model.jpg",
+        "actions": [
+          {
+            "icon": "fas fa-heart",
+            "action": "Add to Favorites"
+          },
+          {
+            "icon": "fas fa-shopping-cart",
+            "action": "Add to Cart"
+          }
+        ],
+        "rating": 4.2,
+        "description": "Our Blue Jeans are a classic choice for any wardrobe. Made by Levi's, these jeans offer both style and comfort. The timeless blue denim pairs well with a variety of outfits, making it a versatile addition to your collection.",
+        "sizes": ["28W", "30W", "32W", "34W"],
+        "reviews": [
+          "I've been wearing these jeans for years, and they never disappoint. Comfortable fit and durable.",
+          "The Blue Jeans by Levi's are my go-to choice. Great quality and stylish.",
+          "These jeans are a great value for the price. I highly recommend them."
+        ]
+      },
+      {
+        "name": "Leather-Effect Trench Coat",
+        "type": "H&M",
+        "price": 32.15,
+        "imageSrc": "../Img/coats model.jpg",
+        "actions": [
+          {
+            "icon": "fas fa-heart",
+            "action": "Add to Favorites"
+          },
+          {
+            "icon": "fas fa-shopping-cart",
+            "action": "Add to Cart"
+          }
+        ],
+        "rating": 4.7,
+        "description": "Stay elegant and warm with our Leather-Effect Trench Coat from H&M. This coat features a classic design with a modern twist. It's perfect for both formal and casual occasions, and its leather-effect finish adds a touch of sophistication.",
+        "sizes": ["Small", "Medium", "Large", "Extra Large"],
+        "reviews": [
+          "I absolutely love this trench coat. It's stylish, comfortable, and keeps me warm.",
+          "The Leather-Effect Trench Coat is a great addition to my wardrobe. It looks much more expensive than it is.",
+          "H&M did a great job with this coat. The quality is impressive."
+        ]
+      },
+      {
+        "name": "Quilted Jacket",
+        "type": "Uniqlo",
+        "price": 25.85,
+        "imageSrc": "../Img/jaket model.jpg",
+        "actions": [
+          {
+            "icon": "fas fa-heart",
+            "action": "Add to Favorites"
+          },
+          {
+            "icon": "fas fa-shopping-cart",
+            "action": "Add to Cart"
+          }
+        ],
+        "rating": 4.5,
+        "description": "Stay warm and stylish with our Quilted Jacket from Uniqlo. This jacket is designed to provide both comfort and fashion. Whether you're heading out for a casual day or need an extra layer in colder weather, this jacket is a versatile choice.",
+        "sizes": ["Small", "Medium", "Large", "Extra Large"],
+        "reviews": [
+          "I love this jacket. It's warm and fits perfectly.",
+          "The Quilted Jacket by Uniqlo is a great addition to my wardrobe. It's stylish and comfortable.",
+          "I highly recommend this jacket. It's a great value for the price."
+        ]
+      },
+      {
+        "name": "Oxford Cotton Shirt",
+        "type": "Lacoste",
+        "price": 12.99,
+        "imageSrc": "../Img/shirt model.jpg",
+        "actions": [
+          {
+            "icon": "fas fa-heart",
+            "action": "Add to Favorites"
+          },
+          {
+            "icon": "fas fa-shopping-cart",
+            "action": "Add to Cart"
+          }
+        ],
+        "rating": 4.0,
+        "description": "Our Oxford Cotton Shirt from Lacoste is a classic choice for a polished look. Made with pure cotton, this shirt offers both comfort and style. Whether you're dressing up for a formal occasion or going for a smart-casual look, this shirt is a versatile option.",
+        "sizes": ["Small", "Medium", "Large", "Extra Large"],
+        "reviews": [
+          "This shirt is comfortable and looks great.",
+          "The Oxford Cotton Shirt by Lacoste is a quality product. I'm satisfied with my purchase.",
+          "I've been wearing this shirt for years, and it never disappoints."
+        ]
+      },
+      {
+        "name": "Short Pants Simply Elegant",
+        "type": "Adidas",
+        "price": 20.5,
+        "imageSrc": "../Img/shorts model.jpg",
+        "actions": [
+          {
+            "icon": "fas fa-heart",
+            "action": "Add to Favorites"
+          },
+          {
+            "icon": "fas fa-shopping-cart",
+            "action": "Add to Cart"
+          }
+        ],
+        "rating": 4.2,
+        "description": "Stay comfortable and stylish with our Short Pants Simply Elegant from Adidas. These shorts offer a perfect fit and a modern design. Whether you're hitting the gym or just lounging at home, these shorts are a great choice.",
+        "sizes": ["Small", "Medium", "Large", "Extra Large"],
+        "reviews": [
+          "These shorts are incredibly comfortable. I wear them for workouts and leisure.",
+          "The Short Pants Simply Elegant by Adidas are my favorite shorts. Great fit and quality.",
+          "I highly recommend these shorts. They are worth every penny."
+        ]
+      },
+      {
+        "name": "Jacquard Knit Sweater",
+        "type": "Uniqlo",
+        "price": 18.25,
+        "imageSrc": "../Img/sweater model.jpg",
+        "actions": [
+          {
+            "icon": "fas fa-heart",
+            "action": "Add to Favorites"
+          },
+          {
+            "icon": "fas fa-shopping-cart",
+            "action": "Add to Cart"
+          }
+        ],
+        "rating": 4.4,
+        "description": "Keep warm and stylish with our Jacquard Knit Sweater from Uniqlo. This sweater features a classic design with a modern twist. It's perfect for chilly days and evenings. Stay cozy and fashionable with this sweater.",
+        "sizes": ["Small", "Medium", "Large", "Extra Large"],
+        "reviews": [
+          "I love this sweater. It's warm and looks great.",
+          "The Jacquard Knit Sweater by Uniqlo is a quality product. I'm satisfied with my purchase.",
+          "I've been wearing this sweater for years, and it never disappoints."
+        ]
+      },
+      {
+        "name": "Adyant T-Shirts",
+        "type": "Adidas",
+        "price": 20.5,
+        "imageSrc": "../Img/tshirt model.jpg",
+        "actions": [
+          {
+            "icon": "fas fa-heart",
+            "action": "Add to Favorites"
+          },
+          {
+            "icon": "fas fa-shopping-cart",
+            "action": "Add to Cart"
+          }
+        ],
+        "rating": 4.1,
+        "description": "Adyant T-Shirts by Adidas are a perfect addition to your casual wardrobe. Made with high-quality materials, these shirts are both comfortable and stylish. Whether you're running errands or meeting friends, these t-shirts offer a great look and feel.",
+        "sizes": ["Small", "Medium", "Large", "Extra Large"],
+        "reviews": [
+          "These t-shirts are comfortable and stylish. I wear them regularly.",
+          "The Adyant T-Shirts by Adidas are my go-to choice. Great fit and quality.",
+          "I highly recommend these t-shirts. They are worth every penny."
+        ]
+      }
+    ]
+  }
+  

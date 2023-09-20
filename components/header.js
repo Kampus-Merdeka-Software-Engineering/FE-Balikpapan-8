@@ -3,7 +3,9 @@ class Header extends HTMLElement {
     super();
   }
 
-  connectedCallback() {
+  async connectedCallback() {
+    // Fetch data from detail-products.json using async/await
+    const productData = await fetchProductData();
     this.innerHTML = `
       <style>
       .navbar {
@@ -323,18 +325,58 @@ class Header extends HTMLElement {
 
     </header>
       `;
+    // Memanggil fungsi untuk mengisi data produk ketika halaman dimuat
     window.onload = function () {
-      const toggleButton = document.getElementsByClassName("toggle-button")[0];
-      const navbarLinks = document.getElementsByClassName("navbar-links")[0];
-      const searchAndButton =
-        document.getElementsByClassName("search-and-button")[0];
+        const toggleButton = document.getElementsByClassName("toggle-button")[0];
+        const navbarLinks = document.getElementsByClassName("navbar-links")[0];
+        const searchAndButton =
+          document.getElementsByClassName("search-and-button")[0];
+  
+        toggleButton.addEventListener("click", () => {
+          navbarLinks.classList.toggle("active");
+          searchAndButton.classList.toggle("active");
+          toggleButton.classList.toggle('active');
+        });
 
-      toggleButton.addEventListener("click", () => {
-        navbarLinks.classList.toggle("active");
-        searchAndButton.classList.toggle("active");
-        toggleButton.classList.toggle('active');
-      });
+      // Mengambil pathname dari URL untuk menentukan halaman yang sedang diakses
+      var pathname = window.location.pathname;
+
+      if (pathname.endsWith("detail-products.html")) {
+        // Mengambil nama produk dari URL
+        var url = new URL(window.location.href);
+        var productName = url.searchParams.get("product");
+
+        if (productName) {
+          // Memanggil loadProductData untuk mendapatkan data produk dari detail-products.js
+          loadProductData(function (products) {
+            var product = products.find((p) => p.name === productName);
+            if (product) {
+              populateProductDetails(product);
+            } else {
+              // Tampilkan pesan jika produk tidak ditemukan
+              alert("Produk tidak ditemukan.");
+            }
+          });
+        } else {
+          alert("Parameter produk tidak ditemukan di URL.");
+        }
+      }
     };
+
+    // Fetch product data from detail-products.json
+    async function fetchProductData() {
+      try {
+        const response = await fetch("../data/detail-products.json");
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        const productData = await response.json();
+        return productData;
+      } catch (error) {
+        console.error("Error fetching product data:", error);
+        return null;
+      }
+    }
 
     // Define an array of menu items
     const menuItems = document.querySelectorAll(".navbar-links li a");
@@ -360,12 +402,12 @@ class Header extends HTMLElement {
 
     const currentPage = window.location.pathname;
 
-    if (currentPage.endsWith("home.html")) {
+    if (currentPage.endsWith("home.html") || currentPage === "/") {
       homeLink.classList.add("active");
     } else if (currentPage.endsWith("products.html")) {
       productsLink.classList.add("active");
     } else if (currentPage.endsWith("about.html")) {
-      aboutLink.classList.add("active"); // Corrected from "aboutLink.classList add("active");"
+      aboutLink.classList.add("active");
     }
   }
 }
