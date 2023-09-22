@@ -34,14 +34,14 @@ html, body {
     align-items: center;
     text-align: center;
     position: relative;
-    margin-top: 48px; /* Ubah margin-top sesuai kebutuhan */
+    margin-top: 48px;
 }
 
 .our-products-header h1 {
-    font-size: 36px; /* Sesuaikan ukuran font sesuai kebutuhan */
+    font-size: 36px;
     font-weight: 900;
     line-height: 1.2;
-    letter-spacing: 1px; /* Sesuaikan jarak huruf sesuai kebutuhan */
+    letter-spacing: 1px;
     margin-bottom: 10px;
     position: relative;
     z-index: 2;
@@ -71,20 +71,17 @@ html, body {
     font-size: 20px;
     font-weight: 600;
     transition: color 0.3s ease;
-    /* Animasi perubahan warna */
 }
 
 /* Hover efek pada tautan */
 .menu-products li a:hover {
     color: var(--accentColorDark);
-    /* Warna tautan yang berubah saat dihover */
 }
 
 /* Tautan aktif */
 .menu-products li a.active {
     color: var(--accentColorDark);
     border-bottom: 2px solid var(--accentColorDark);
-    /* Warna tautan yang berubah saat aktif */
 }
 
 
@@ -104,7 +101,6 @@ html, body {
     margin-bottom: 50px;
     padding: 0px 12px;
     position: relative;
-    /* Menambahkan posisi relatif untuk mengatur ikon */
 }
 
 .products img {
@@ -203,7 +199,7 @@ html, body {
     }
 
     .our-products-header h1 {
-        font-size: 24px; /* Ubah ukuran font sesuai kebutuhan untuk layar mobile */
+        font-size: 24px;
       }
   
     .menu-products li {
