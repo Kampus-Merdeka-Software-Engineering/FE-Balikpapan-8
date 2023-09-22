@@ -270,6 +270,7 @@ class Header extends HTMLElement {
         }
     
         .get-started-button {
+          padding: 6px 14px;
             margin-left: auto;
             width: auto;
         }
