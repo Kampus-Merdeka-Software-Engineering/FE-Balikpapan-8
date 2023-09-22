@@ -78,11 +78,11 @@ class Header extends HTMLElement {
         position: relative;
         transition: color 0.3s ease;
     }
-
+    
     .navbar-links li a.active {
-      color: var(--accentColorDark);
-      border-bottom: 2px solid var(--accentColorDark);
-  }
+        color: var(--accentColorDark);
+        border-bottom: 2px solid var(--accentColorDark);
+    }
     
     .navbar-links li a:hover {
         color: var(--accentColorDark);
@@ -112,31 +112,66 @@ class Header extends HTMLElement {
         justify-content: space-between;
         width: 30px;
         height: 21px;
-        transition: transform 0.3s ease-in-out, content 0.3s ease-in-out, font-siz  e 0.3s ease-in-out;
-        -webkit-transition: transform 0.3s ease-in-out, content 0.3s ease-in-out, font-siz  e 0.3s ease-in-out;
-        -moz-transition: transform 0.3s ease-in-out, content 0.3s ease-in-out, font-siz  e 0.3s ease-in-out;
-        -ms-transition: transform 0.3s ease-in-out, content 0.3s ease-in-out, font-siz  e 0.3s ease-in-out;
-        -o-transition: transform 0.3s ease-in-out, content 0.3s ease-in-out, font-siz  e 0.3s ease-in-out;
+        transition: transform 0.3s ease-in-out, content 0.3s ease-in-out, font-siz e 0.3s ease-in-out;
+        -webkit-transition: transform 0.3s ease-in-out, content 0.3s ease-in-out, font-siz e 0.3s ease-in-out;
+        -moz-transition: transform 0.3s ease-in-out, content 0.3s ease-in-out, font-siz e 0.3s ease-in-out;
+        -ms-transition: transform 0.3s ease-in-out, content 0.3s ease-in-out, font-siz e 0.3s ease-in-out;
+        -o-transition: transform 0.3s ease-in-out, content 0.3s ease-in-out, font-siz e 0.3s ease-in-out;
     }
     
-    .toggle-button.active::before {
-      content: "×";
-      font-size: 40px;
-      font-weight: bold;
-      color: var(--accentColorDark);
-      transform: rotate(90deg);
-      -webkit-transform: rotate(90deg);
-      -moz-transform: rotate(90deg);
-      -ms-transform: rotate(90deg);
-      -o-transform: rotate(90deg);
-  }
-  
-
-    .toggle-button .bar {
-        height: 3px;
-        width: 100%;
-        background-color: var(--accentColorDark);
-        border-radius: 10px;
+    
+    #burger-menu span,
+    #burger-menu span:before,
+    #burger-menu span:after {
+        background: var(--accentColorDark);
+        display: block;
+        height: 4px;
+        opacity: 1;
+        position: absolute;
+        transition: 0.3s ease-in-out;
+    }
+    
+    #burger-menu span:before,
+    #burger-menu span:after {
+        content: "";
+    }
+    
+    #burger-menu span {
+        right: 0px;
+        top: 13px;
+        width: 27px;
+    }
+    
+    #burger-menu span:before {
+        left: 0px;
+        top: -10px;
+        width: 16px;
+    }
+    
+    #burger-menu span:after {
+        left: 0px;
+        top: 10px;
+        width: 20px;
+    }
+    
+    #burger-menu.close span {
+        transform: rotate(-45deg);
+        top: 13px;
+        width: 27px;
+    }
+    
+    #burger-menu.close span:before {
+        top: 0px;
+        transform: rotate(90deg);
+        width: 27px;
+    }
+    
+    #burger-menu.close span:after {
+        top: 0px;
+        left: 0;
+        transform: rotate(90deg);
+        opacity: 0;
+        width: 0;
     }
     
     .search-and-button {
@@ -171,9 +206,9 @@ class Header extends HTMLElement {
         outline: none;
         cursor: auto;
     }
-
+    
     .search-container input:active {
-      border: 2px solid var(--secondaryColor);
+        border: 2px solid var(--secondaryColor);
     }
     
     .search-container:hover {
@@ -270,7 +305,7 @@ class Header extends HTMLElement {
         }
     
         .get-started-button {
-          padding: 6px 14px;
+            padding: 6px 14px;
             margin-left: auto;
             width: auto;
         }
@@ -278,23 +313,20 @@ class Header extends HTMLElement {
     
     /* Responsive Tablet */
     @media (max-width: 1080px) {
-      .navbar {
-          flex-direction: column;
-          align-items: flex-start;
-          padding-bottom: 20px;
-          width: 100%;
-      }
-  
-      .navbar-links {
-          margin-bottom: 1rem;
-      }
-  }
-  
+        .navbar {
+            flex-direction: column;
+            align-items: flex-start;
+            padding-bottom: 20px;
+            width: 100%;
+        }
     
-    
+        .navbar-links {
+            margin-bottom: 1rem;
+        }
     }
-      
-      /* End Navbar */
+    
+    
+    /* End Navbar */
       </style>
       <header>
       <nav class="navbar">
@@ -304,10 +336,8 @@ class Header extends HTMLElement {
             </a>
       </div>
 
-      <a href="#" class="toggle-button">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
+      <a href="#" id="burger-menu" class="toggle-button">
+          <span></span>
       </a>
 
       <div class="navbar-links" data-aos="zoom-in" data-aos-duration:"1000">
@@ -338,16 +368,21 @@ class Header extends HTMLElement {
       `;
     // Memanggil fungsi untuk mengisi data produk ketika halaman dimuat
     window.onload = function () {
-        const toggleButton = document.getElementsByClassName("toggle-button")[0];
-        const navbarLinks = document.getElementsByClassName("navbar-links")[0];
-        const searchAndButton =
-          document.getElementsByClassName("search-and-button")[0];
-  
-        toggleButton.addEventListener("click", () => {
-          navbarLinks.classList.toggle("active");
-          searchAndButton.classList.toggle("active");
-          toggleButton.classList.toggle('active');
-        });
+      const toggleButton = document.getElementsByClassName("toggle-button")[0];
+      const navbarLinks = document.getElementsByClassName("navbar-links")[0];
+      const searchAndButton =
+        document.getElementsByClassName("search-and-button")[0];
+
+      toggleButton.addEventListener("click", () => {
+        navbarLinks.classList.toggle("active");
+        searchAndButton.classList.toggle("active");
+        toggleButton.classList.toggle("active");
+      });
+
+      var burgerMenu = document.getElementById("burger-menu");
+      burgerMenu.addEventListener("click", function () {
+        this.classList.toggle("close");
+      });
 
       // Mengambil pathname dari URL untuk menentukan halaman yang sedang diakses
       var pathname = window.location.pathname;
