@@ -26,7 +26,7 @@ html, body {
 /* About Section */
 
 .about {
-    margin: 100px 72px;
+    margin: 120px 72px;
 }
 
 .about-header {
@@ -246,7 +246,7 @@ html, body {
     }
 
     .about-content img {
-        width: 100%;
+        width: 400px;
         height: auto;
         border-radius: 200px 0px;
         box-shadow: 6px 6px 4px 0px rgba(0, 0, 0, 0.25);

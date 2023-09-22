@@ -13,6 +13,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
     />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <title>RobinCode</title>
   </head>
   <body>
@@ -21,8 +22,8 @@
     <!-- End Header -->
 
     <!-- Hero Section -->
-    <section class="hero-section">
-      <div class="hero-content">
+    <section class="hero-section" data-aos="fade-up">
+      <div class="hero-content" data-aos="fade-right" data-aos-duration="1000" data-aos-easing="ease-in-sine">
         <div class="text-hero-1">
           <h1>LET’S</h1>
         </div>
@@ -50,7 +51,7 @@
           <a href="../views/products.html" class="btn btn-hero">Shop Now</a>
         </div>
       </div>
-      <div class="hero-img">
+      <div class="hero-img" data-aos="zoom-in" data-aos-duration="800">
         <img src="../Img/Hero Img.png" alt="Hero Image" />
       </div>
     </section>
@@ -59,7 +60,8 @@
 
     <!-- Brands Section -->
     <section class="brands">
-      <div class="brands-list">
+      <div class="brands-list" data-aos="fade-up"
+      data-aos-anchor-placement="center-bottom" data-aos-duration="800">
         <img src="../Img/h&m.svg" alt="" />
         <img src="../Img/obey.svg" alt="" />
         <img src="../Img/adidas.svg" alt="" />
@@ -73,7 +75,8 @@
 
     <!-- Our Product Section -->
     <section class="our-product">
-      <div class="product-header">
+      <div class="product-header" data-aos="fade-right"
+      data-aos-easing="ease-in-sine">
         <h1>OUR PRODUCTS</h1>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -89,7 +92,7 @@
         </svg>
       </div>
 
-      <div class="swiper">
+      <div class="swiper" data-aos="zoom-in">
         <div class="swiper-wrapper">
           <!-- Slide 1 -->
           <div class="swiper-slide">
@@ -206,10 +209,10 @@
           </div>
         </div>
       </div>
-      <div class="swiper-button-left">
+      <div class="swiper-button-left" data-aos="fade-right">
         <i class="fas fa-chevron-left"></i>
       </div>
-      <div class="swiper-button-right">
+      <div class="swiper-button-right" data-aos="fade-left">
         <i class="fas fa-chevron-right"></i>
       </div>
     </section>
@@ -218,7 +221,8 @@
 
     <!-- Banner Diskon Section -->
     <section class="banner">
-      <div class="banner-diskon">
+      <div class="banner-diskon" data-aos="fade-up"
+      data-aos-anchor-placement="center-bottom" data-aos-duration="1000">
         <h1>Get up to 30% off</h1>
         <a href="../views/products.html">
           <button class="banner-button">Shop Now</button>
@@ -230,7 +234,7 @@
 
     <!-- What We Do Section -->
     <section class="what-we-do">
-      <div class="what-we-do-header">
+      <div class="what-we-do-header" data-aos="zoom-in" data-aos-duration="1000">
         <h1>What We Do!</h1>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -246,7 +250,7 @@
         </svg>
       </div>
 
-      <div class="keunggulan-container">
+      <div class="keunggulan-container" data-aos="zoom-in" data-aos-duration="1000">
         <div class="keunggulan keunggulan-1">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -413,7 +417,8 @@
 
     <!-- Form Section -->
     <section class="form-section">
-      <div class="form-header">
+      <div class="form-header" data-aos="fade-up"
+      data-aos-anchor-placement="top-bottom" data-aos-duration="1000">
         <h1>WE WOULD LOVE TO HEAR FROM YOU</h1>
         <p>
           If you have any query or any type of suggestion, you can contact us
@@ -421,7 +426,7 @@
         </p>
       </div>
 
-      <form id="contact-form" action="#" method="post">
+      <form id="contact-form" action="#" method="post" data-aos="fade-up" data-aos-duration="1000">
         <div class="form-group">
           <label for="name">Name:</label>
           <input
@@ -481,6 +486,10 @@
       type="text/javascript"
       defer
     ></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
 
     <!-- End script -->
   </body>

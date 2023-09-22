@@ -10,6 +10,7 @@
     />
 
     <link rel="stylesheet" href="../css/detail-products.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <title>RobinCode</title>
   </head>
   <body>
@@ -20,8 +21,8 @@
     <!-- Detail Products Section -->
     <section class="detail-products">
       <div class="product-details">
-        <img src="" alt="product-image" id="product-image" />
-        <div class="product-info">
+        <img src="" alt="product-image" id="product-image" data-aos="fade-right" data-aos-duration="2000" data-aos-delay="50"/>
+        <div class="product-info" data-aos="fade-left" data-aos-duration="2000" >
           <h1 class="product-brand" id="product-name"></h1>
           <div class="product-rating" id="product-rating"></div>
           <p class="product-price" id="product-price"></p>
@@ -36,7 +37,7 @@
       </div>
 
       <!-- Box Menu -->
-      <div class="box-menu">
+      <div class="box-menu" data-aos="fade-up" data-aos-duration="500">
         <button id="description-button" class="menu-button active">
           Description
         </button>
@@ -44,7 +45,7 @@
       </div>
 
       <!-- Box Content -->
-      <div class="box-content">
+      <div class="box-content" data-aos="zoom-in" data-aos-duration="500">
         <div class="box-description active">
           <p id="product-long-description"></p>
         </div>
@@ -68,5 +69,9 @@
     <script src="../script/detail-products.js"></script>
     <script src="../components/header.js" type="text/javascript" defer></script>
     <script src="../components/footer.js" type="text/javascript" defer></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
   </body>
 </html>

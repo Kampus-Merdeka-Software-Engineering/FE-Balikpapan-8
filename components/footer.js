@@ -221,7 +221,7 @@ footer {
   </style>
   <!-- Footer -->
   <footer>
-    <div class="footer-content">
+    <div class="footer-content" data-aos="fade-right" data-aos-duration="1000">
       <div class="footer-brand">
         <h1>RobinCode</h1>
         <p>
@@ -237,7 +237,7 @@ footer {
       </div>
     </div>
 
-    <div class="footer-menu">
+    <div class="footer-menu" data-aos="fade-left" data-aos-duration="1000">
       <div class="category">
         <ul>
           <li class="menu-header">Company</li>

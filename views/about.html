@@ -10,6 +10,7 @@
     />
 
     <link rel="stylesheet" href="../css/about.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <title>RobinCode</title>
   </head>
   <body>
@@ -19,7 +20,7 @@
 
     <!-- About Section -->
     <section class="about">
-      <div class="about-header">
+      <div class="about-header" data-aos="fade-right" data-aos-duration="2000">
         <h1 id="about-title"></h1>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -35,14 +36,14 @@
         </svg>
       </div>
       <div class="about-content">
-        <p id="about-content"></p>
-        <img id="about-image" src="" alt="About Img" />
+        <p id="about-content" data-aos="fade-right" data-aos-duration="2000"></p>
+        <img id="about-image" src="" alt="About Img" data-aos="fade-left" data-aos-duration="1000"/>
       </div>
     </section>
 
     <!-- Our Team Section -->
     <section class="our-team">
-      <div class="our-team-header">
+      <div class="our-team-header" data-aos="fade-up" data-aos-duration="1000">
         <h1 id="team-title"></h1>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -57,7 +58,7 @@
           />
         </svg>
       </div>
-      <div class="list-team" id="team-list"></div>
+      <div class="list-team" id="team-list"  data-aos="fade-up" data-aos-duration="1000"></div>
     </section>
 
     <!-- End Our Team Section -->
@@ -77,5 +78,9 @@
       type="text/javascript"
       defer
     ></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
   </body>
 </html>

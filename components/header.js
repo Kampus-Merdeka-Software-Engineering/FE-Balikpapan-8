@@ -171,6 +171,10 @@ class Header extends HTMLElement {
         outline: none;
         cursor: auto;
     }
+
+    .search-container input:active {
+      border: 2px solid var(--secondaryColor);
+    }
     
     .search-container:hover {
         border: 2px solid var(--secondaryColor);
@@ -187,6 +191,7 @@ class Header extends HTMLElement {
     .get-started-button {
         width: 160px;
         height: 50px;
+        border: none;
         border-radius: 20px;
         background: var(--accentColorDark);
         color: var(--primaryColor);
@@ -198,6 +203,7 @@ class Header extends HTMLElement {
     
     .get-started-button:hover {
         background: var(--primaryColor);
+        border: 2px solid var(--accentColorDark);
         color: var(--accentColorDark);
         transform: scale(1.05);
         cursor: pointer;
@@ -271,14 +277,18 @@ class Header extends HTMLElement {
     
     /* Responsive Tablet */
     @media (max-width: 1080px) {
-        .navbar {
-            flex-direction: column;
-            align-items: flex-start;
-        }
-    
-        .navbar-links {
-            margin-bottom: 1rem;
-        }
+      .navbar {
+          flex-direction: column;
+          align-items: flex-start;
+          padding-bottom: 20px;
+          width: 100%;
+      }
+  
+      .navbar-links {
+          margin-bottom: 1rem;
+      }
+  }
+  
     
     
     }
@@ -287,7 +297,7 @@ class Header extends HTMLElement {
       </style>
       <header>
       <nav class="navbar">
-      <div class="brand-title">
+      <div class="brand-title" data-aos="zoom-in" data-aos-duration:"1000">
           <a href="../views/home.html" class="navbar-brand">
               Robin<span class="navbar-brand-teks2">Code</span>
             </a>
@@ -299,7 +309,7 @@ class Header extends HTMLElement {
           <span class="bar"></span>
       </a>
 
-      <div class="navbar-links">
+      <div class="navbar-links" data-aos="zoom-in" data-aos-duration:"1000">
           <ul>
               <li><a href="../views/home.html" id="homeLink">Home</a></li>
               <li><a href="../views/products.html" id="productsLink">Products</a></li>
@@ -307,7 +317,7 @@ class Header extends HTMLElement {
           </ul>
       </div>
 
-      <div class="search-and-button">
+      <div class="search-and-button" data-aos="zoom-in" data-aos-duration:"1000">
           <div class="search-container">
               <input
                 type="text"

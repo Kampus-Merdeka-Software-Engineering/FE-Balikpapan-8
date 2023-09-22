@@ -10,6 +10,7 @@
     />
 
     <link rel="stylesheet" href="../css/products.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <title>RobinCode</title>
   </head>
   <body>
@@ -19,7 +20,7 @@
 
     <!-- Our Products Section -->
     <section class="our-products">
-      <div class="our-products-header">
+      <div class="our-products-header" data-aos="zoom-in" data-aos-duration="1000">
         <h1>OUR PRODUCTS</h1>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -35,7 +36,7 @@
         </svg>
       </div>
 
-      <div class="products-container">
+      <div class="products-container" data-aos="fade-right" data-aos-duration="1000">
         <div class="top-menu-products">
           <ul class="menu-products">
             <li>
@@ -51,7 +52,7 @@
       </div>
 
       <!-- Kontainer produk -->
-      <div class="products" id="product-container"></div>
+      <div class="products" id="product-container" data-aos="fade-up" data-aos-duration="1000"></div>
     </section>
 
     <!-- End Our Products Section -->
@@ -68,5 +69,9 @@
     <script src="../components/header.js" type="text/javascript" defer></script>
     <script src="../components/footer.js" type="text/javascript" defer></script>
     <script src="../components/scroll-button.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
   </body>
 </html>
