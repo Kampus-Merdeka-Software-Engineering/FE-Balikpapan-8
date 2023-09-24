@@ -38,16 +38,6 @@
           "image": "../Img/team/septi.jpeg"
         },
         {
-          "name": "Shinta",
-          "role": "Front End Engineer",
-          "socialMedia": {
-            "instagram": "https://www.instagram.com/username",
-            "linkedin": "https://www.linkedin.com/in/username",
-            "github": "https://github.com/username"
-          },
-          "image": "../Img/team/shinta.jpeg"
-        },
-        {
           "name": "Prada",
           "role": "Back End Engineer",
           "socialMedia": {
