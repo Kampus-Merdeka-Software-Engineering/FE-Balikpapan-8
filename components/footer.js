@@ -129,6 +129,17 @@ footer {
   color: var(--primaryColor);
 }
 
+.copyright{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 14px 0px;
+  font-size: 18px;
+  font-weight: 900;
+  color: var(--accentColorDark);
+  background-color: var(--secondaryColor)
+}
+
 /* Media Queries for Responsive Design */
 @media (max-width: 720px) {
 footer {
@@ -277,6 +288,9 @@ footer {
       </div>
     </div>
   </footer>
+  <div class="copyright">
+  Copyright &copy; 2023 RobinCode
+        </div>
 
   <!-- End Footer -->
       `;
