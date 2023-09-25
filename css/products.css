@@ -166,11 +166,11 @@ html, body {
     flex-direction: column;
 }
 
-.products-brand {
+.products-name {
     color: var(--accentColorDark);
 }
 
-.products-type {
+.products-brand {
     color: var(--accentColorGrey);
 }
 

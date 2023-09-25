@@ -68,21 +68,21 @@ function createProductElement(product) {
   productInfo.className = "products-info";
 
   var productName = document.createElement("h3");
-  productName.className = "products-brand";
+  productName.className = "products-name";
   productName.textContent = product.name;
 
   var productDetails = document.createElement("div");
   productDetails.className = "products-details";
 
-  var productType = document.createElement("p");
-  productType.className = "products-type";
-  productType.textContent = product.type;
+  var productBrand = document.createElement("p");
+  productBrand.className = "products-brand";
+  productBrand.textContent = product.brand;
 
   var productPrice = document.createElement("p");
   productPrice.className = "products-price";
   productPrice.textContent = "$" + product.price;
 
-  productDetails.appendChild(productType);
+  productDetails.appendChild(productBrand);
   productDetails.appendChild(productPrice);
 
   productInfo.appendChild(productName);
