@@ -1,0 +1,3 @@
+[build]
+  command = "npm run start"  # Ganti dengan perintah build Anda
+  publish = "public"           # Ganti dengan direktori hasil build Anda
