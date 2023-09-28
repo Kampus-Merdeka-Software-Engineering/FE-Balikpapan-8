@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="../css/about.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <title>RobinCode</title>
+  </head>
+  <body>
+    <!-- Header -->
+    <header-component></header-component>
+    <!-- End Header -->
+
+    <!-- About Section -->
+    <section class="about">
+      <div class="about-header" data-aos="fade-right" data-aos-duration="2000">
+        <h1 id="about-title"></h1>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="186"
+          height="35"
+          viewBox="0 0 186 35"
+          fill="none"
+        >
+          <path
+            d="M83.7956 3.97549C65.1744 8.30883 22.3455 19.9755 0 31.9755C56.5288 37.3088 172.779 39.1755 185.547 3.97549C167.591 0.975492 122.102 -3.22451 83.7956 3.97549Z"
+            fill="#EBD96B"
+          />
+        </svg>
+      </div>
+      <div class="about-content">
+        <p id="about-content" data-aos="fade-right" data-aos-duration="2000"></p>
+        <img id="about-image" src="" alt="About Img" data-aos="fade-left" data-aos-duration="1000"/>
+      </div>
+    </section>
+
+    <!-- Our Team Section -->
+    <section class="our-team">
+      <div class="our-team-header" data-aos="fade-up" data-aos-duration="1000">
+        <h1 id="team-title"></h1>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="187"
+          height="35"
+          viewBox="0 0 187 35"
+          fill="none"
+        >
+          <path
+            d="M84.7629 3.97549C66.1417 8.30883 23.3128 19.9755 0.967285 31.9755C57.4961 37.3088 173.746 39.1755 186.515 3.97549C168.559 0.975492 123.069 -3.22451 84.7629 3.97549Z"
+            fill="#EBD96B"
+          />
+        </svg>
+      </div>
+      <div class="list-team" id="team-list"  data-aos="fade-up" data-aos-duration="1000"></div>
+    </section>
+
+    <!-- End Our Team Section -->
+
+    <!-- Footer -->
+    <footer-component></footer-component>
+    <!-- End Footer -->
+
+    <scroll-button></scroll-button>
+
+    <!-- script -->
+    <script src="../script/about.js"></script>
+    <script src="../components/header.js" type="text/javascript" defer></script>
+    <script src="../components/footer.js" type="text/javascript" defer></script>
+    <script
+      src="../components/scroll-button.js"
+      type="text/javascript"
+      defer
+    ></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>
