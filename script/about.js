@@ -1,4 +1,3 @@
-// Function to fill content in the HTML
 function fillContent() {
   // Fetch data from about.json
   fetch('../data/about.json')
