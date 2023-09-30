@@ -415,7 +415,6 @@ html, body {
     flex-direction: column;
     align-items: center;
     margin: 60px 5%;
-    min-height: 100vh;
 }
 
 .what-we-do-header {
@@ -654,6 +653,63 @@ button[type="submit"]:active {
 
 /* Media query for tablet screens (up to 1080px) */
 @media screen and (max-width: 1080px) {
+
+    .hero-section {
+        border-radius: 30px;
+        -webkit-border-radius: 30px;
+        -moz-border-radius: 30px;
+        -ms-border-radius: 30px;
+        -o-border-radius: 30px;
+    }
+
+    .hero-content {
+        padding: 78px 0px;
+    }
+
+    .hero-content h1 {
+        font-size: 60px;
+        margin-left: 70px;
+    }
+
+    .hero-content p {
+        font-size: 24px;
+        margin-left: 70px;
+    }
+
+    .text-hero-1,
+    .text-hero-2 {
+        width: 60%;
+    }
+
+    .text-hero-1 h1,
+    .text-hero-2 h1 {
+        margin-left: 10px;
+    }
+
+    .hero-img img {
+        margin-top: 184px;
+        width: 400px;
+        height: auto;
+    }
+
+    .hero-button {
+        gap: 34px;
+        margin: 32px 0px;
+    }
+
+    .hero-icon svg {
+        width: 100px;
+        height: auto;
+        margin-left: 50px;
+    }
+
+    .btn-hero {
+        font-size: 20px;
+        text-align: center;
+        padding: 18px 40px;
+    }
+
+
     .brands {
         height: auto;
         padding: 20px;
@@ -670,6 +726,11 @@ button[type="submit"]:active {
         margin: 10px;
     }
 
+    .swiper-button-left,
+    .swiper-button-right {
+        margin: 40px -20px;
+    }
+
     .banner-diskon h1 {
         font-size: 80px;
     }
@@ -683,6 +744,15 @@ button[type="submit"]:active {
         font-size: 42px;
     }
 
+    .what-we-do-header svg {
+        left: 160px;
+    }
+
+    /* Add a horizontal line */
+    .keunggulan-container::after {
+        width: 500px;
+    }
+
     .keunggulan svg {
         width: 80px;
         height: 80px;
@@ -690,27 +760,28 @@ button[type="submit"]:active {
         border-radius: 15px;
     }
 
+    .keunggulan-content h1 {
+        font-size: 16px;
+    }
+
+    .keunggulan-content p {
+        font-size: 12px;
+    }
+
     .form-header h1 {
-        font-size: 48px;
-        line-height: 60px;
-        margin-bottom: 30px;
+        font-size: 34px;
     }
 
     .form-header p {
-        font-size: 24px;
+        font-size: 20px;
     }
 
     #contact-form {
-        max-width: 100%; 
-        padding: 0 40px;
-    }
-    
-    .form-group {
-        flex-basis: 100%;
+        padding: 0 80px;
     }
 
     textarea {
-        height: 140px;
+        width: 660px;
     }
 }
 
@@ -804,7 +875,7 @@ button[type="submit"]:active {
     }
 
     .form-header h1 {
-        font-size: 40px; 
+        font-size: 40px;
         line-height: 50px;
         margin-bottom: 20px;
     }
