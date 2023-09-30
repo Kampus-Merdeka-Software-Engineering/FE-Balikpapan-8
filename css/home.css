@@ -102,7 +102,6 @@ html, body {
 }
 
 
-
 .hero-button {
     display: inline-flex;
     align-items: center;
@@ -652,8 +651,7 @@ button[type="submit"]:active {
 /* End form section */
 
 /* Media query for tablet screens (up to 1080px) */
-@media screen and (max-width: 1080px) {
-
+@media (min-width: 721px) and (max-width: 1080px) {
     .hero-section {
         border-radius: 30px;
         -webkit-border-radius: 30px;
@@ -786,114 +784,157 @@ button[type="submit"]:active {
 }
 
 /* Media query for mobile screens (up to 720px) */
-@media screen and (max-width: 720px) {
-
-    .text-hero-1,
-    .text-hero-2 {
-        max-width: 1080px;
-    }
-
+@media (max-width: 720px) {
     .hero-section {
-        margin: 20px;
-        border-radius: 0;
+        height: 610px;
+        margin: 20px 20px;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        border-radius: 20px;
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        -ms-border-radius: 20px;
+        -o-border-radius: 20px;
     }
 
     .hero-content {
-        padding: 40px 20px;
-        text-align: center;
+        margin-top: 10px;
     }
 
     .hero-content h1 {
-        font-size: 40px;
-        line-height: 60px;
+        font-size: 50px;
+        margin-left: 10px;
     }
 
     .hero-content p {
-        font-size: 24px;
-        margin-top: 20px;
-        margin-bottom: 20px;
-    }
-
-    .hero-img {
-        text-align: center;
-        margin-top: 20px;
+        font-size: 16px;
+        margin-left: 10px;
+        margin-top: -10px;
     }
 
     .text-hero-1,
     .text-hero-2 {
-        padding: 10px;
+        width: 60%;
+        margin-left: 80px;
+    }
+
+    .text-hero-1 h1,
+    .text-hero-2 h1 {
+        margin-left: 10px;
+    }
+
+    .hero-img {
+        display: none;
     }
 
     .hero-button {
-        gap: 10px;
-        margin: 20px 0;
+        margin: -20px 30px;
+    }
+
+    .hero-icon svg {
+        width: 100px;
+    }
+
+    .btn-hero {
+        font-size: 20px;
+         padding: 10px 20px;
     }
 
     .brands {
         height: auto;
+        padding: 20px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         text-align: center;
-        padding: 20px;
         flex-wrap: wrap;
     }
 
     .brands-list img {
-        flex: 0 0 calc(50% - 40px);
-    }
-
-    .banner {
+        width: 100px;
         height: auto;
-        min-height: 300px;
-        background-attachment: scroll;
+        margin: 10px;
     }
 
-    .banner-diskon h1 {
-        font-size: 60px;
-        margin-bottom: 20px;
-    }
-
-    .banner-button {
-        font-size: 24px;
-        padding: 12px 24px;
-    }
-
-    .what-we-do {
-        margin: 44px 5%;
-    }
-
-    .what-we-do-header h1 {
+    .product-header h1 {
         font-size: 30px;
     }
 
+    .product-header svg {
+        width: 160px;
+         left: 130px;
+    }
+
+    .swiper-button-left,
+    .swiper-button-right {
+        margin: -200px -50px;
+    }
+
+    .banner-diskon h1 {
+        font-size: 70px;
+    }
+
+    .banner-button {
+        font-size: 28px;
+        padding: 16px 32px;
+    }
+
+    .what-we-do-header h1 {
+        font-size: 42px;
+    }
+
+    .what-we-do-header svg {
+        left: 160px;
+    }
+
+    .keunggulan-container::after {
+        display: none;
+    }
+
+    .keunggulan-container {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .keunggulan {
+        width: 300px;
+        align-items: center;
+        text-align: center;
+    }
+
     .keunggulan svg {
-        width: 60px;
-        height: 60px;
-        padding: 15px;
-        border-radius: 10px;
+        width: 50px;
+        height: 50px;
+        padding: 16px;
+        border-radius: 12px;
+        -webkit-border-radius: 12px;
+        -moz-border-radius: 12px;
+        -ms-border-radius: 12px;
+        -o-border-radius: 12px;
+}
+
+    .keunggulan-content h1 {
+        font-size: 16px;
+    }
+
+    .keunggulan-content p {
+        font-size: 12px;
+    }
+
+    .form-section {
+        padding: 0px 20px;
     }
 
     .form-header h1 {
-        font-size: 40px;
-        line-height: 50px;
-        margin-bottom: 20px;
+        font-size: 30px;
     }
 
     .form-header p {
         font-size: 18px;
     }
 
-    #contact-form {
-        max-width: 720px;
-    }
-
-    .form-group {
-        flex-basis: 100%;
-    }
-
     textarea {
-        width: 100%;
-        height: 120px;
+        width: 390px;
     }
 }

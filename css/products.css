@@ -191,7 +191,7 @@ html, body {
 
 
 /* CSS untuk layar dengan lebar maksimum 720px (Mobile) */
-@media (max-width: 720px) {
+@media screen and (max-width: 720px) {
     .menu-products {
       margin: 40px 0;
       flex-direction: column;
@@ -213,7 +213,7 @@ html, body {
   }
   
   /* CSS untuk layar dengan lebar maksimum 1080px (Tablet) */
-  @media (max-width: 1080px) {
+  @media screen and (max-width: 1080px) {
     .menu-products {
       margin: 40px 0;
       flex-direction: column;
