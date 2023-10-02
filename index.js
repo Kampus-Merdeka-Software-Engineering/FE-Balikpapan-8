@@ -1,4 +1,4 @@
-fetch("../data/products.json") // Mengambil data dari products.json
+fetch("./data/products.json") // Mengambil data dari products.json
   .then((response) => response.json())
   .then((data) => {
     const products = data.products;
@@ -71,7 +71,7 @@ fetch("../data/products.json") // Mengambil data dari products.json
       productType.textContent = product["product-type"];
 
       const exploreButtonContainer = document.createElement("a");
-      exploreButtonContainer.href = "../views/products.html";
+      exploreButtonContainer.href = "./views/products.html";
 
       const iconButton = document.createElement("button");
       iconButton.classList.add("icon-button");
