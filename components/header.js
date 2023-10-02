@@ -331,7 +331,7 @@ class Header extends HTMLElement {
       <header>
       <nav class="navbar">
       <div class="brand-title" data-aos="zoom-in" data-aos-duration:"1000">
-          <a href="../views/home.html" class="navbar-brand">
+          <a href="index.html" class="navbar-brand">
               Robin<span class="navbar-brand-teks2">Code</span>
             </a>
       </div>
@@ -342,7 +342,7 @@ class Header extends HTMLElement {
 
       <div class="navbar-links" data-aos="zoom-in" data-aos-duration:"1000">
           <ul>
-              <li><a href="../views/home.html" id="homeLink">Home</a></li>
+              <li><a href="index.html" id="homeLink">Home</a></li>
               <li><a href="../views/products.html" id="productsLink">Products</a></li>
               <li><a href="../views/about.html" id="aboutLink">About</a></li>
           </ul>
@@ -448,7 +448,7 @@ class Header extends HTMLElement {
 
     const currentPage = window.location.pathname;
 
-    if (currentPage.endsWith("home.html") || currentPage === "/") {
+    if (currentPage.endsWith("index.html") || currentPage === "/") {
       homeLink.classList.add("active");
     } else if (currentPage.endsWith("products.html")) {
       productsLink.classList.add("active");
