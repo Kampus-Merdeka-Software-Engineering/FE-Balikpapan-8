@@ -342,9 +342,9 @@ class Header extends HTMLElement {
 
       <div class="navbar-links" data-aos="zoom-in" data-aos-duration:"1000">
           <ul>
-              <li><a href="index.html" id="homeLink">Home</a></li>
-              <li><a href="../views/products.html" id="productsLink">Products</a></li>
-              <li><a href="../views/about.html" id="aboutLink">About</a></li>
+              <li><a href="/index.html" id="homeLink">Home</a></li>
+              <li><a href="/views/products.html" id="productsLink">Products</a></li>
+              <li><a href="/views/about.html" id="aboutLink">About</a></li>
           </ul>
       </div>
 
