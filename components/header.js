@@ -448,7 +448,7 @@ class Header extends HTMLElement {
 
     const currentPage = window.location.pathname;
 
-    if (currentPage.endsWith("index.html") || currentPage === "/") {
+    if (currentPage.endsWith("index.html")) {
       homeLink.classList.add("active");
     } else if (currentPage.endsWith("products.html")) {
       productsLink.classList.add("active");
