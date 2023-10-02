@@ -344,9 +344,9 @@ class Header extends HTMLElement {
 
       <div class="navbar-links" data-aos="zoom-in" data-aos-duration:"1000">
           <ul>
-              <li><a href="/front-end-capstone-project-section-balikpapan-group-8/index.html" id="homeLink">Home</a></li>
-              <li><a href="/front-end-capstone-project-section-balikpapan-group-8/views/products.html" id="productsLink">Products</a></li>
-              <li><a href="/front-end-capstone-project-section-balikpapan-group-8/views/about.html" id="aboutLink">About</a></li>
+              <li><a href="/${repositoryName}/index.html" id="homeLink">Home</a></li>
+              <li><a href="/${repositoryName}/views/products.html" id="productsLink">Products</a></li>
+              <li><a href="/${repositoryName}/views/about.html" id="aboutLink">About</a></li>
           </ul>
       </div>
 
