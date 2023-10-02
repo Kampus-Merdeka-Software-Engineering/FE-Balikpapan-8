@@ -4,7 +4,7 @@
 
 Selamat datang di repository proyek "RobinCode"! Kami adalah tim kreatif dari Section Balikpapan Group 8 yang berkomitmen untuk menciptakan pengalaman belanja e-commerce thrift fashion yang luar biasa.
 
-![RobinCode Logo](logo-robincode.png)
+![RobinCode Logo](Logo-RobinCode.png)
 
 ## Tentang Proyek
 
