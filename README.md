@@ -34,8 +34,6 @@ Proyek "RobinCode" dibangun dengan teknologi terkini, termasuk:
 
 - **Keranjang Belanja**: Tambahkan item ke keranjang belanja dengan cepat.
 
-- **Proses Checkout**: Bayar dengan aman dan nyaman.
-
 ## 📖 Cara Menggunakan Proyek
 
 1. Clone repositori ini ke komputer Anda.
