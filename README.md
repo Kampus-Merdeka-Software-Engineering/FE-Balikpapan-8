@@ -1,9 +1,8 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/0wBSnje4)
 
-
 # RobinCode - E-commerce Thrift Fashion
 
-Selamat datang di repository proyek "RobinCode"! Kami adalah tim kreatif dari Balikpapan Group 8 yang berkomitmen untuk menciptakan pengalaman belanja e-commerce thrift fashion yang luar biasa.
+Selamat datang di repository proyek "RobinCode"! Kami adalah tim kreatif dari Section Balikpapan Group 8 yang berkomitmen untuk menciptakan pengalaman belanja e-commerce thrift fashion yang luar biasa.
 
 ![RobinCode Logo](logo-robincode.png)
 
@@ -11,7 +10,7 @@ Selamat datang di repository proyek "RobinCode"! Kami adalah tim kreatif dari Ba
 
 "RobinCode" adalah proyek Capstone yang bertujuan membawa pakaian thrift fashion berkualitas dengan harga terjangkau kepada pengguna. Kami menggabungkan teknologi dan mode untuk menciptakan platform belanja yang unik.
 
-## Teknologi yang Digunakan
+## 🚀 Teknologi yang Digunakan
 
 Proyek "RobinCode" dibangun dengan teknologi terkini, termasuk:
 
@@ -25,7 +24,7 @@ Proyek "RobinCode" dibangun dengan teknologi terkini, termasuk:
 
 - **Database**: Penyimpanan data produk dan informasi pengguna.
 
-## Fitur Utama
+## 🌟 Fitur Utama
 
 "RobinCode" menawarkan berbagai fitur utama:
 
@@ -37,9 +36,7 @@ Proyek "RobinCode" dibangun dengan teknologi terkini, termasuk:
 
 - **Proses Checkout**: Bayar dengan aman dan nyaman.
 
-- **Dashboard Pengguna**: Pantau pesanan dan atur profil Anda.
-
-## Cara Menggunakan Proyek
+## 📖 Cara Menggunakan Proyek
 
 1. Clone repositori ini ke komputer Anda.
 2. Install dependensi dengan menjalankan perintah `npm install`.
@@ -47,11 +44,11 @@ Proyek "RobinCode" dibangun dengan teknologi terkini, termasuk:
 
 [![Buka Proyek](https://img.shields.io/badge/Buka%20Proyek-RobinCode-brightgreen)](https://kampus-merdeka-software-engineering.github.io/front-end-capstone-project-section-balikpapan-group-8/)
 
-## Tim Pengembangan
+## 👨‍💻 Tim Pengembangan
 
-"RobinCode" adalah hasil kerja keras dari tim Grup 8 Sekolah Kampus Merdeka Software Engineering. Terima kasih kepada semua kontributor yang telah berpartisipasi dalam pengembangan situs ini.
+"RobinCode" adalah hasil kerja keras dari tim Grup 8 (RevoU x MSIB Kemendikbudristek Kampus Merdeka Software Engineering). Terima kasih kepada semua kontributor yang telah berpartisipasi dalam pengembangan situs ini.
 
-## Kontribusi
+## 🤝 Kontribusi
 
 Kami sangat menyambut kontribusi dari komunitas. Jika Anda ingin berkontribusi pada pengembangan "RobinCode," silakan lihat "Issues" untuk tugas-tugas yang perlu diselesaikan atau kirimkan permintaan tarik (pull request).
 
