@@ -4,8 +4,8 @@
 
 Selamat datang di repository proyek "RobinCode"! Kami adalah tim kreatif dari Section Balikpapan Group 8 yang berkomitmen untuk menciptakan pengalaman belanja e-commerce thrift fashion yang luar biasa.
 
-![RobinCode Logo](![Logo-RobinCode](https://github.com/Kampus-Merdeka-Software-Engineering/front-end-capstone-project-section-balikpapan-group-8/assets/113696252/7c52e8f9-71dd-4d28-b563-b91ff334d07c)
-)
+![Logo-RobinCode](https://github.com/Kampus-Merdeka-Software-Engineering/front-end-capstone-project-section-balikpapan-group-8/assets/113696252/0032bcfc-303f-4fdd-a9a2-a94a40583678)
+
 
 ## Tentang Proyek
 
