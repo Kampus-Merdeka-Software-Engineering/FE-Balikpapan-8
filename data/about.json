@@ -23,9 +23,9 @@
           "socialMedia": {
             "instagram": "https://www.instagram.com/zyxkoo",
             "linkedin": "https://www.linkedin.com/in/yoko-khmrdn",
-            "github": "https://github.com/zyxkoo15"
+            "github": "https://github.com/ykkhmrdn"
           },
-          "image": "../img/team/yoko.jpg"
+          "image": "../img/team/yoko.png"
         },
         {
           "name": "Septi",
@@ -55,7 +55,7 @@
             "linkedin": "https://www.linkedin.com/in/hildaayumeylia",
             "github": "https://github.com/myhilda"
           },
-          "image": "../img/team/hilda.jpeg"
+          "image": "../img/team/hilda.jpg"
         }
       ]
     }
