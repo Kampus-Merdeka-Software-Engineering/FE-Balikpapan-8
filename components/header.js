@@ -163,155 +163,222 @@ class Header extends HTMLElement {
         display: flex;
     }
     
-    .search-container {
-        width: 292px;
-        height: 50px;
-        border-radius: 1000px;
-        background: transparent;
-        display: flex;
-        margin-right: 50px;
-        position: relative;
-        overflow: hidden;
-        border: 2px solid var(--accentColorDark);
-        transition: background 0.3s ease-in-out, border 0.3s ease-in-out;
-    }
-    
-    .search-input::placeholder {
-        color: rgba(0, 0, 0, 0.30);
-    }
-    
-    .search-input {
-        border: none;
-        width: 100%;
-        height: 100%;
-        padding-left: 20px;
-        background: transparent;
-        color: var(--accentColorDark);
-        font-size: 16px;
-        outline: none;
-        cursor: auto;
-    }
-    
-    .search-container input:active {
-        border: 2px solid var(--secondaryColor);
-    }
-    
-    .search-container:hover {
-        border: 2px solid var(--secondaryColor);
-    }
-    
-    .search-icon {
-        font-size: 16px;
-        margin: 16px 18px;
-        color: var(--accentColorDark);
-        opacity: 0.3;
-    }
-    
-    
-    .get-started-button {
-        width: 160px;
-        height: 50px;
-        border: none;
-        border-radius: 20px;
-        background: var(--accentColorDark);
-        color: var(--primaryColor);
-        font-size: 18px;
-        font-weight: 500;
-        transition: background 0.3s, color 0.3s, transform 0.3s, cursor 0.3s;
-        cursor: pointer;
-    }
-    
-    .get-started-button:hover {
-        background: var(--primaryColor);
-        border: 2px solid var(--accentColorDark);
-        color: var(--accentColorDark);
-        transform: scale(1.05);
-        cursor: pointer;
-    }
-    
-    .get-started-button:active {
-        transform: scale(0.95);
-        transition: transform 0.1s;
-    }
-    
-    /* Responsive Mobile */
-    
-    @media (max-width: 720px) {
-        .navbar {
-            padding: 0px;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-    
-        .toggle-button {
-            display: flex;
-        }
-    
-        .navbar-links {
-            display: none;
-            width: 100%;
-        }
-    
-        .navbar-links ul {
-            width: 100%;
-            flex-direction: column;
-        }
-    
-        .navbar-links ul li {
-            text-align: center;
-        }
-    
-        .navbar-links ul li a {
-            padding: .5rem 1rem;
-        }
-    
-        .navbar-links.active {
-            display: flex;
-        }
-    
-        .search-and-button {
-            display: none;
-            width: 100%;
-        }
-    
-        .search-and-button.active {
-            padding: 20px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-    
-        .search-form {
-            margin-top: 10px;
-        }
-    
-        .search-container {
-            width: 160px;
-        }
-    
-        .get-started-button {
-            padding: 6px 14px;
-            margin-left: auto;
-            width: auto;
-        }
-    }
-    
-    /* Responsive Tablet */
-    @media (max-width: 1080px) {
-        .navbar {
-            flex-direction: column;
-            align-items: flex-start;
-            padding-bottom: 20px;
-            width: 100%;
-        }
-    
-        .navbar-links {
-            margin-bottom: 1rem;
-        }
-    }
-    
-    
-    /* End Navbar */
+   
+.search {
+  --input-line: var(--accentColorDark);
+  --input-text-color: var(--accentColorGrey);
+  --input-text-hover-color: transparent;
+  --input-border-color: var(--accentColorDark);
+  --input-border-hover-color: var(--secondaryColor);
+  --input-bg-color: var(--primaryColor);
+  --search-max-width: 250px;
+  --search-min-width: 150px;
+  --border-radius: 50px;
+  --transition-cubic-bezier: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.search-box {
+  max-width: var(--search-max-width);
+  min-width: var(--search-min-width);
+  height: 50px;
+  border: 1px solid var(--input-border-color);
+  border-radius: var(--border-radius);
+  margin-right: 50px;
+  padding: 5px 20px;
+  background: var(--input-bg-color);
+  transition: var(--transition-cubic-bezier);
+}
+
+.search-box:hover {
+  border-color: var(--input-border-hover-color);
+}
+
+/*Section input*/
+.search-field {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  left: 2px;
+  border: 0;
+}
+
+.input {
+  width: calc(100% - 29px);
+  height: 100%;
+  border: 0;
+  border-color: transparent;
+  font-size: 1rem;
+  padding-right: 0px;
+  color: var(--input-line);
+  background: var(--input-bg-color);
+  outline: none;
+}
+
+.input::-webkit-input-placeholder {
+  color: var(--input-text-color);
+}
+
+.input::-moz-input-placeholder {
+  color: var(--input-text-color);
+}
+
+.input::-ms-input-placeholder {
+  color: var(--input-text-color);
+}
+
+.input:focus::-webkit-input-placeholder {
+  color: var(--input-text-hover-color);
+}
+
+.input:focus::-moz-input-placeholder {
+  color: var(--input-text-hover-color);
+}
+
+.input:focus::-ms-input-placeholder {
+  color: var(--input-text-hover-color);
+}
+
+/*Search button*/
+.search-box-icon {
+  width: 52px;
+  height: 50px;
+  position: absolute;
+  top: -6px;
+  right: -21px;
+  background: transparent;
+  transition: var(--transition-cubic-bezier);
+  -webkit-transition: var(--transition-cubic-bezier);
+  -moz-transition: var(--transition-cubic-bezier);
+  -ms-transition: var(--transition-cubic-bezier);
+  -o-transition: var(--transition-cubic-bezier);
+}
+
+
+.btn-icon-content {
+  width: 52px;
+  height: 50px;
+  top: -6px;
+  right: -10px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition-cubic-bezier);
+  opacity: .4;
+}
+
+.btn-icon-content:hover {
+  opacity: .8;
+}
+
+.search-icon {
+  width: 21px;
+  height: 21px;
+  position: absolute;
+  top: 12px;
+  right: 15px;
+}
+
+
+.get-started-button {
+  width: 160px;
+  height: 50px;
+  border: none;
+  border-radius: 20px;
+  background: var(--accentColorDark);
+  color: var(--primaryColor);
+  font-size: 18px;
+  font-weight: 500;
+  transition: background 0.3s, color 0.3s, transform 0.3s, cursor 0.3s;
+  cursor: pointer;
+}
+
+.get-started-button:hover {
+  background: var(--primaryColor);
+  border: 2px solid var(--accentColorDark);
+  color: var(--accentColorDark);
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+.get-started-button:active {
+  transform: scale(0.95);
+  transition: transform 0.1s;
+}
+
+/* Responsive Mobile */
+
+@media (max-width: 720px) {
+  .navbar {
+      padding: 0px;
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  .toggle-button {
+      display: flex;
+  }
+
+  .navbar-links {
+      display: none;
+      width: 100%;
+  }
+
+  .navbar-links ul {
+      width: 100%;
+      flex-direction: column;
+  }
+
+  .navbar-links ul li {
+      text-align: center;
+  }
+
+  .navbar-links ul li a {
+      padding: .5rem 1rem;
+  }
+
+  .navbar-links.active {
+      display: flex;
+  }
+
+  .search-and-button {
+      display: none;
+      width: 100%;
+  }
+
+  .search-and-button.active {
+      padding: 20px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+  }
+
+  .search {
+      width: 160px;
+  }
+
+  .get-started-button {
+      padding: 6px 14px;
+      margin-left: auto;
+      width: auto;
+  }
+}
+
+/* Responsive Tablet */
+@media (max-width: 1080px) {
+  .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+      padding-bottom: 20px;
+      width: 100%;
+  }
+
+  .navbar-links {
+      margin-bottom: 1rem;
+  }
+}
+
+
+/* End Navbar */
       </style>
       <header>
       <nav class="navbar">
@@ -334,15 +401,20 @@ class Header extends HTMLElement {
       </div>
 
       <div class="search-and-button" data-aos="zoom-in" data-aos-duration:"1000">
-          <div class="search-container">
-              <input
-                type="text"
-                class="search-input"
-                id="searchInput"
-                placeholder="Search"
-              />
-              <i class="fas fa-search search-icon" id="searchIcon"></i>
-            </div>
+      <div class="search">
+      <div class="search-box">
+        <div class="search-field">
+          <input placeholder="Search..." class="input" type="text">
+          <div class="search-box-icon">
+            <button class="btn-icon-content">
+              <i class="search-icon">
+                <svg xmlns="://www.w3.org/2000/svg" version="1.1" viewBox="0 0 512 512"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z" fill="#C2C8DA"></path></svg>
+              </i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   
             <button class="get-started-button">Get Started</button>
       </div>
