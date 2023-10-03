@@ -17,8 +17,7 @@ class Header extends HTMLElement {
         justify-content: space-between;
         align-items: center;
         background-color: var(--primaryColor);
-        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-        border-bottom: 2px solid #fff;
+     
     }
     
     .brand-title {
@@ -41,23 +40,7 @@ class Header extends HTMLElement {
     .brand-title span {
         color: var(--secondaryColor);
     }
-    
-    .brand-title:hover {
-        transform: scale(1.1);
-        -webkit-transform: scale(1.1);
-        -moz-transform: scale(1.1);
-        -ms-transform: scale(1.1);
-        -o-transform: scale(1.1);
-    }
-    
-    .brand-title:active {
-        transform: scale(0.9);
-        -webkit-transform: scale(0.9);
-        -moz-transform: scale(0.9);
-        -ms-transform: scale(0.9);
-        -o-transform: scale(0.9);
-    }
-    
+
     .navbar-links {
         height: 100%;
     }
