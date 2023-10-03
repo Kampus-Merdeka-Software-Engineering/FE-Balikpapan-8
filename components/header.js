@@ -7,7 +7,7 @@ class Header extends HTMLElement {
     // Fetch data from detail-products.json using async/await
     const productData = await fetchProductData();
 
-    const repositoryName = getRepositoryName();
+    // const repositoryName = getRepositoryName();
     this.innerHTML = `
       <style>
       .navbar {
@@ -344,9 +344,9 @@ class Header extends HTMLElement {
 
       <div class="navbar-links" data-aos="zoom-in" data-aos-duration:"1000">
           <ul>
-              <li><a href="/${repositoryName}/index.html" id="homeLink">Home</a></li>
-              <li><a href="/${repositoryName}/views/products.html" id="productsLink">Products</a></li>
-              <li><a href="/${repositoryName}/views/about.html" id="aboutLink">About</a></li>
+              <li><a href="/index.html" id="homeLink">Home</a></li>
+              <li><a href="/views/products.html" id="productsLink">Products</a></li>
+              <li><a href="/views/about.html" id="aboutLink">About</a></li>
           </ul>
       </div>
 
@@ -460,13 +460,13 @@ class Header extends HTMLElement {
   }
 }
 
-// Function to extract the repository name from the GitHub Pages URL
-function getRepositoryName() {
-  const currentURL = window.location.href;
-  const parts = currentURL.split('/');
-  const username = parts[3]; // Assuming the username is at this position in the URL
-  const repositoryName = parts[4]; // Assuming the repository name is at this position
-  return `${username}/${repositoryName}`;
-}
+// // Function to extract the repository name from the GitHub Pages URL
+// function getRepositoryName() {
+//   const currentURL = window.location.href;
+//   const parts = currentURL.split('/');
+//   const username = parts[3]; // Assuming the username is at this position in the URL
+//   const repositoryName = parts[4]; // Assuming the repository name is at this position
+//   return `${username}/${repositoryName}`;
+// }
 
 customElements.define("header-component", Header);

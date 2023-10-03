@@ -4,7 +4,7 @@
       "name": "Adicolor Classics Hoodie",
       "brand": "H&M",
       "price": 19.99,
-      "imageSrc": "../Img/hoodie model.jpg",
+      "imageSrc": "../img/hoodie model.jpg",
       "actions": [
         {
           "icon": "fas fa-heart",
@@ -29,7 +29,7 @@
       "name": "Blue Jeans",
       "brand": "Levi's",
       "price": 20.5,
-      "imageSrc": "../Img/jeans model.jpg",
+      "imageSrc": "../img/jeans model.jpg",
       "actions": [
         {
           "icon": "fas fa-heart",
@@ -54,7 +54,7 @@
       "name": "Leather-Effect Trench Coat",
       "brand": "H&M",
       "price": 32.15,
-      "imageSrc": "../Img/coats model.jpg",
+      "imageSrc": "../img/coats model.jpg",
       "actions": [
         {
           "icon": "fas fa-heart",
@@ -79,7 +79,7 @@
       "name": "Quilted Jacket",
       "brand": "Uniqlo",
       "price": 25.85,
-      "imageSrc": "../Img/jaket model.jpg",
+      "imageSrc": "../img/jaket model.jpg",
       "actions": [
         {
           "icon": "fas fa-heart",
@@ -104,7 +104,7 @@
       "name": "Oxford Cotton Shirt",
       "brand": "Lacoste",
       "price": 12.99,
-      "imageSrc": "../Img/shirt model.jpg",
+      "imageSrc": "../img/shirt model.jpg",
       "actions": [
         {
           "icon": "fas fa-heart",
@@ -129,7 +129,7 @@
       "name": "Short Pants Simply Elegant",
       "brand": "Adidas",
       "price": 20.5,
-      "imageSrc": "../Img/shorts model.jpg",
+      "imageSrc": "../img/shorts model.jpg",
       "actions": [
         {
           "icon": "fas fa-heart",
@@ -154,7 +154,7 @@
       "name": "Jacquard Knit Sweater",
       "brand": "Uniqlo",
       "price": 18.25,
-      "imageSrc": "../Img/sweater model.jpg",
+      "imageSrc": "../img/sweater model.jpg",
       "actions": [
         {
           "icon": "fas fa-heart",
@@ -179,7 +179,7 @@
       "name": "Adyant T-Shirts",
       "brand": "Adidas",
       "price": 20.5,
-      "imageSrc": "../Img/tshirt model.jpg",
+      "imageSrc": "../img/tshirt model.jpg",
       "actions": [
         {
           "icon": "fas fa-heart",

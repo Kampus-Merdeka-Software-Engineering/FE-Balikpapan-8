@@ -2,7 +2,7 @@
     "aboutUs": {
       "title": "ABOUT US",
       "content": "RobinCode is dedicated to reshaping the fashion industry through sustainable practices. We curate top-quality thrifted fashion pieces, prioritizing both style and eco-consciousness. Join us in the fashion revolution today!",
-      "imagePath": "../Img/about img.jpg"
+      "imagePath": "../img/about img.jpg"
     },
     "team": {
       "title": "MEET OUR GREAT TEAM",
@@ -15,7 +15,7 @@
             "linkedin": "https://www.linkedin.com/in/diana-masruroh",
             "github": "https://github.com/dianamsrh"
           },
-          "image": "../Img/team/diana.jpeg"
+          "image": "../img/team/diana.jpeg"
         },
         {
           "name": "Yoko",
@@ -25,7 +25,7 @@
             "linkedin": "https://www.linkedin.com/in/yoko-khmrdn",
             "github": "https://github.com/zyxkoo15"
           },
-          "image": "../Img/team/yoko.jpg"
+          "image": "../img/team/yoko.jpg"
         },
         {
           "name": "Septi",
@@ -35,7 +35,7 @@
             "linkedin": "https://www.linkedin.com/in/septiana-aulia-nur-fadlina-b72564284",
             "github": "https://github.com/septianaanf"
           },
-          "image": "../Img/team/septi.jpeg"
+          "image": "../img/team/septi.jpeg"
         },
         {
           "name": "Prada",
@@ -45,7 +45,7 @@
             "linkedin": "https://www.linkedin.com/in/prada-dipa-014284210",
             "github": "https://github.com/pradadipa"
           },
-          "image": "../Img/team/prada.png"
+          "image": "../img/team/prada.png"
         },
         {
           "name": "Hilda",
@@ -55,7 +55,7 @@
             "linkedin": "https://www.linkedin.com/in/hildaayumeylia",
             "github": "https://github.com/myhilda"
           },
-          "image": "../Img/team/hilda.jpeg"
+          "image": "../img/team/hilda.jpeg"
         }
       ]
     }
