@@ -25,24 +25,28 @@ html, body {
 
 /* Deatil Products */
 .detail-products {
-    padding: 128px;
+    margin: 0px 130px 40px 130px;
 }
 
 .product-details {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     width: 100%;
 }
 
 .product-details img {
     flex: 1;
-    margin-right: 48px;
-    width: 550px;
-    height: 685px;
+    width: 100%;
+    max-width: 400px;
+    height: 500px;
 }
 
 .product-info {
-    flex: 2;
+    width: 100%;
+    max-width: 550px;
+    text-align: left;
+    padding: 0 20px;
+    margin-left: 20px;
 }
 
 .product-brand {
@@ -119,6 +123,7 @@ html, body {
 .box-menu {
     display: flex;
     margin-top: 24px;
+    margin-left: 146px;
 }
 
 .menu-button {
@@ -146,6 +151,7 @@ html, body {
     padding: 20px;
     border: 1px solid #ccc;
     margin-top: 20px;
+    margin-left: 146px;
 }
 
 .box-description {
@@ -162,20 +168,23 @@ html, body {
 /* End Detail Products */
 
 /* Responsiveness for Mobile */
+
 @media (max-width: 720px) {
+
     .detail-products {
-        padding: 40px;
+        margin: 10px 10px;
     }
 
     .product-details {
         flex-direction: column;
-        text-align: center;
+        justify-content: flex-start; 
+        text-align: left;
+        align-items: flex-start;
     }
 
     .product-details img {
-        margin-right: 0;
         width: 100%;
-        max-width: 100%;
+        max-width: 200px;
         height: auto;
     }
 
@@ -184,7 +193,7 @@ html, body {
     }
 
     .product-brand {
-        font-size: 28px;
+        font-size: 20px;
         line-height: 36px;
         margin-bottom: 10px;
     }
@@ -216,12 +225,14 @@ html, body {
 /* Responsiveness for Tablets */
 @media (max-width: 1080px) {
     .detail-products {
-        padding: 64px;
+        margin: 40px 40px;
     }
 
     .product-details {
-        flex-direction: column; 
+        flex-direction: column;
+        justify-content: flex-start; 
         text-align: left;
+        align-items: flex-start;
     }
 
     .product-details img {
@@ -230,7 +241,7 @@ html, body {
     }
 
     .product-info {
-        margin-top: 0;
+        margin-top: 10px;
     }
 
     .product-brand {
@@ -256,9 +267,15 @@ html, body {
 
     .select-size select {
         width: 210px;
+        font-size: 16px;
     }
 
     .box-menu {
         margin-top: 24px;
+        margin-left: 40px;
+    }
+
+    .box-content {
+        margin-left: 40px;
     }
 }
