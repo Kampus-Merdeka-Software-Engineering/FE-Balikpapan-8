@@ -1,31 +1,33 @@
-function fillContent() {
-  // Fetch data from about.json
-  fetch('../data/about.json')
-    .then((response) => response.json())
-    .then((aboutData) => {
-      // Fill About Us section
-      document.getElementById("about-title").textContent = aboutData.aboutUs.title;
-      document.getElementById("about-content").textContent = aboutData.aboutUs.content;
-      document.getElementById("about-image").src = aboutData.aboutUs.imagePath;
+const API_BASE_URL = "https://be-balikpapan-8-production.up.railway.app";
 
-      // Fill Our Team section
-      document.getElementById("team-title").textContent = aboutData.team.title;
+function fillContent() {
+  // Fetch data from the API
+  fetch(`${API_BASE_URL}/views/about`)
+    .then((response) => response.json())
+    .then((data) => {
+      const membersData = data.members; // Access the "members" array in the response
+
+      // Fill Team section
       const teamList = document.getElementById("team-list");
-      aboutData.team.members.forEach((member) => {
+
+      membersData.forEach((member) => {
         const teamCard = document.createElement("div");
         teamCard.classList.add("team-cards");
         teamCard.innerHTML = `
-            <img src="${member.image}" alt="${member.name}" />
-            <h1>${member.name}</h1>
-            <p>${member.role}</p>
-            <div class="social-media">
-              <a href="${member.socialMedia.instagram}" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-              <a href="${member.socialMedia.linkedin}" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
-              <a href="${member.socialMedia.github}" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
-            </div>
-          `;
+          <img src="${member.image}" alt="${member.name}" />
+          <h1>${member.name}</h1>
+          <p>${member.role}</p>
+          <div class="social-media">
+            <a href="${member.instagram}" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+            <a href="${member.linkedin}" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+            <a href="${member.github}" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+          </div>
+        `;
         teamList.appendChild(teamCard);
       });
+    })
+    .catch((error) => {
+      console.error("Error fetching member data:", error);
     });
 }
 
