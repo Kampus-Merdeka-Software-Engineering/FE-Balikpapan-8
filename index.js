@@ -1,14 +1,16 @@
-fetch("./data/products.json") // Mengambil data dari products.json
-.then((response) => {
-  if (!response.ok) {
-    throw new Error("Network response was not ok");
-  }
-  return response.json();
-})
-  .then((data) => {
-    const products = data.products;
+const API_BASE_URL = "https://be-balikpapan-8-production.up.railway.app";
 
-    // Membuat instance Swiper setelah data diambil
+fetch(`${API_BASE_URL}/index`) // Fetch data from API endpoint
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    return response.json();
+  })
+  .then((data) => {
+    const products = data.data || [];
+
+    // Create swiper instance after data is fetched
     const swiper = new Swiper(".swiper", {
       loop: true,
       loopFillGroupWithBlank: true,
@@ -34,35 +36,35 @@ fetch("./data/products.json") // Mengambil data dari products.json
       breakpoints: {
         320: {
           slidesPerView: 1,
-          spaceBetween: 20
-      },
-      // when window width is >= 480px
-      480: {
+          spaceBetween: 20,
+        },
+        // when window width is >= 480px
+        480: {
           slidesPerView: 1,
-          spaceBetween: 30
-      },
-      // when window width is >= 640px
-      640: {
+          spaceBetween: 30,
+        },
+        // when window width is >= 640px
+        640: {
           slidesPerView: 2,
-          spaceBetween: 40
-      },
-      1000: {
+          spaceBetween: 40,
+        },
+        1000: {
           slidesPerView: 3,
           spaceBetween: 30,
-      }
+        },
       },
     });
 
-    // Mengisi konten slide swiper dengan data dari JSON
+    // Populate swiper slides with data from API
     for (let i = 0; i < products.length; i++) {
       const product = products[i];
 
-      // Membuat elemen slide swiper secara dinamis
+      // Create swiper slide element dynamically
       const slide = document.createElement("div");
       slide.classList.add("swiper-slide");
       slide.setAttribute("data-product-index", i);
 
-      // Membuat elemen-elemen dalam slide
+      // Create elements inside slide
       const productImageContainer = document.createElement("div");
       productImageContainer.classList.add("product-image");
 
@@ -73,7 +75,7 @@ fetch("./data/products.json") // Mengambil data dari products.json
 
       const productType = document.createElement("p");
       productType.classList.add("product-type");
-      productType.textContent = product["product-type"];
+      productType.textContent = product.product_type;
 
       const exploreButtonContainer = document.createElement("a");
       exploreButtonContainer.href = "./views/products.html";
@@ -88,7 +90,7 @@ fetch("./data/products.json") // Mengambil data dari products.json
       exploreButton.classList.add("explore-button");
       exploreButton.textContent = "Explore Now!";
 
-      // Menyusun elemen-elemen dalam slide
+      // Assemble elements inside slide
       iconButton.appendChild(icon);
       exploreButtonContainer.appendChild(iconButton);
       productImageContainer.appendChild(productImage);
@@ -98,20 +100,65 @@ fetch("./data/products.json") // Mengambil data dari products.json
       slide.appendChild(productType);
       slide.appendChild(exploreButton);
 
-      // Menambahkan slide ke swiper
+      // Add slide to swiper
       swiper.appendSlide(slide);
     }
   })
-  
-
   .catch((error) => {
     console.error("Error fetching data:", error);
   });
 
-  // Mengambil elemen kontainer utama
+
+ 
+
+// Get main container element
 const container = document.querySelector(".swiper");
-// Mengukur lebar layar
+// Measure screen width
 const screenWidth = window.innerWidth;
 
-// Mengatur lebar kontainer utama sesuai dengan lebar layar
+// Set main container width to match screen width
 container.style.maxWidth = `${screenWidth}px`;
+
+
+// Handle form submission
+const form = document.querySelector('#contact-form');
+form.addEventListener('submit', async (event) => {
+  event.preventDefault();
+
+  // Mendefinisikan data formulir dengan struktur yang diinginkan
+  const formData = {
+    name: document.querySelector('#name').value,
+    email: document.querySelector('#email').value,
+    message: document.querySelector('#message').value,
+  };
+
+  try {
+    // Mengirimkan data formulir ke server menggunakan endpoint API
+    const response = await fetch(`${API_BASE_URL}/index`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    });
+
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+
+    const responseData = await response.json();
+    console.log('Form data sent successfully:', responseData);
+
+    // Menampilkan pesan pop-up
+    window.alert('Form data has been sent successfully!');
+
+    // Melakukan sesuatu dengan data respons jika diperlukan
+    const formId = responseData.formId;
+    // Gunakan formId sesuai kebutuhan
+
+    // Reset formulir setelah pengiriman yang berhasil
+    form.reset();
+  } catch (error) {
+    console.error('Error sending form data:', error);
+  }
+});
