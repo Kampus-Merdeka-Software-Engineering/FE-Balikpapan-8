@@ -1,5 +1,10 @@
 fetch("./data/products.json") // Mengambil data dari products.json
-  .then((response) => response.json())
+.then((response) => {
+  if (!response.ok) {
+    throw new Error("Network response was not ok");
+  }
+  return response.json();
+})
   .then((data) => {
     const products = data.products;
 
@@ -96,4 +101,17 @@ fetch("./data/products.json") // Mengambil data dari products.json
       // Menambahkan slide ke swiper
       swiper.appendSlide(slide);
     }
+  })
+  
+
+  .catch((error) => {
+    console.error("Error fetching data:", error);
   });
+
+  // Mengambil elemen kontainer utama
+const container = document.querySelector(".swiper");
+// Mengukur lebar layar
+const screenWidth = window.innerWidth;
+
+// Mengatur lebar kontainer utama sesuai dengan lebar layar
+container.style.maxWidth = `${screenWidth}px`;

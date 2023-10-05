@@ -466,20 +466,21 @@ class Header extends HTMLElement {
       }
     };
 
-    // Fetch product data from detail-products.json
     async function fetchProductData() {
       try {
-        const response = await fetch("../data/detail-products.json");
+        const response = await fetch(`${API_BASE_URL}/views/products`);
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
         const productData = await response.json();
+        console.log("Product data from server:", productData);
         return productData;
       } catch (error) {
         console.error("Error fetching product data:", error);
-        return null;
+        throw error;
       }
     }
+    
 
     // Define an array of menu items
     const menuItems = document.querySelectorAll(".navbar-links li a");

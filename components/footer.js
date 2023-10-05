@@ -13,6 +13,8 @@ footer {
   padding: 130px 74px;
   display: flex;
   justify-content: space-between;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .footer-content {

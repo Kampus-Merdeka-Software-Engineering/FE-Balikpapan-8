@@ -1,17 +1,30 @@
-// Fungsi untuk memuat data produk dari products.json menggunakan fetch
-function loadProductData(callback) {
-  fetch('../data/products.json')
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (productData) {
-      callback(productData.products);
-    })
-    .catch(function (error) {
-      console.error('Error fetching product data:', error);
-    });
-}
+const API_BASE_URL = "https://be-balikpapan-8-production.up.railway.app";
 
+// Fungsi untuk memuat data produk dari API menggunakan fetch
+function loadProductData(callback) {
+  // Mengambil id produk dari URL
+  var productId = getParameterByName("productId");
+
+  // Pastikan productId tidak null sebelum melakukan fetch data
+  if (!productId) {
+    console.error("Product ID is missing in the URL.");
+    return;
+  }
+// Fetch data dari API
+fetch(`${API_BASE_URL}/views/detail-products.html?productId=${encodeURIComponent(productId)}`)
+.then(function (response) {
+  if (!response.ok) {
+    throw new Error(`HTTP error! Status: ${response.status}`);
+  }
+  return response.json();
+})
+.then(function (productData) {
+  callback(productData.data);
+})
+.catch(function (error) {
+  console.error('Error fetching product data:', error);
+});
+}
 // Fungsi untuk mengisi data produk ke dalam elemen HTML
 function populateProductDetails(product) {
   const productImage = document.getElementById("product-image");
@@ -57,30 +70,18 @@ function populateProductDetails(product) {
     .join("");
   productReviews.innerHTML = reviewsList;
 }
-
 // Memanggil fungsi untuk mengisi data produk ketika halaman dimuat
 window.onload = function () {
-  // Mengambil nama produk dari URL
-  var url = new URL(window.location.href);
-  var productName = url.searchParams.get("product");
-
-  if (productName) {
-    // Memanggil loadProductData untuk mendapatkan data produk dari products.js
-    loadProductData(function (products) {
-      var product = products.find((p) => p.name === productName);
-      if (product) {
-        populateProductDetails(product);
-      } else {
-        // Tampilkan pesan jika produk tidak ditemukan
-        alert("Produk tidak ditemukan.");
-      }
-    });
-  } else {
-    // Tampilkan pesan jika parameter produk tidak ada di URL
-    alert("Parameter produk tidak ditemukan di URL.");
-  }
+  // Memanggil loadProductData untuk mendapatkan data produk dari API
+  loadProductData(function (product) {
+    if (product) {
+      populateProductDetails(product);
+    } else {
+      // Tampilkan pesan jika produk tidak ditemukan
+      alert("Produk tidak ditemukan.");
+    }
+  });
 };
-
 // Script Description and review
 document
   .getElementById("description-button")
