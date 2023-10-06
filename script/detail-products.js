@@ -64,6 +64,23 @@ function populateProductDetails(product) {
     .join("");
   sizeDropdown.innerHTML = sizeOptions;
 
+   // Mengisi jumlah produk
+   const quantityInput = document.getElementById("quantity");
+   const decreaseButton = document.getElementById("decrease-button");
+   const increaseButton = document.getElementById("increase-button");
+ 
+   decreaseButton.addEventListener("click", () => {
+     const currentQuantity = parseInt(quantityInput.value, 10);
+     if (currentQuantity > 1) {
+       quantityInput.value = currentQuantity - 1;
+     }
+   });
+ 
+   increaseButton.addEventListener("click", () => {
+     const currentQuantity = parseInt(quantityInput.value, 10);
+     quantityInput.value = currentQuantity + 1;
+   });
+
   // Mengisi ulasan produk
   const reviewsList = product.reviews
     .map((review) => `<li>${review}</li>`)
