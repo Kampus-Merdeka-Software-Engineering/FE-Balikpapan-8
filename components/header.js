@@ -3,9 +3,7 @@ class Header extends HTMLElement {
     super();
   }
 
-
   async connectedCallback() {
-
     // const repositoryName = getRepositoryName();
     this.innerHTML = `
       <style>
@@ -86,78 +84,90 @@ class Header extends HTMLElement {
     .navbar-links li a:hover::after {
         width: 100%;
     }
-    
     .toggle-button {
-        position: absolute;
-        top: 1.20rem;
-        right: 1rem;
-        display: none;
-        flex-direction: column;
-        justify-content: space-between;
-        width: 30px;
-        height: 21px;
-        transition: transform 0.3s ease-in-out, content 0.3s ease-in-out, font-siz e 0.3s ease-in-out;
-        -webkit-transition: transform 0.3s ease-in-out, content 0.3s ease-in-out, font-siz e 0.3s ease-in-out;
-        -moz-transition: transform 0.3s ease-in-out, content 0.3s ease-in-out, font-siz e 0.3s ease-in-out;
-        -ms-transition: transform 0.3s ease-in-out, content 0.3s ease-in-out, font-siz e 0.3s ease-in-out;
-        -o-transition: transform 0.3s ease-in-out, content 0.3s ease-in-out, font-siz e 0.3s ease-in-out;
+      position: absolute;
+      top: 1.20rem;
+      right: 1rem;
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 30px;
+      height: 21px;
+      transition: transform 0.3s ease-in-out, content 0.3s ease-in-out, font-size 0.3s ease-in-out;
+      -webkit-transition: transform 0.3s ease-in-out, content 0.3s ease-in-out, font-size 0.3s ease-in-out;
+      -moz-transition: transform 0.3s ease-in-out, content 0.3s ease-in-out, font-size 0.3s ease-in-out;
+      -ms-transition: transform 0.3s ease-in-out, content 0.3s ease-in-out, font-size 0.3s ease-in-out;
+      -o-transition: transform 0.3s ease-in-out, content 0.3s ease-in-out, font-size 0.3s ease-in-out;
     }
-    
     
     #burger-menu span,
     #burger-menu span:before,
     #burger-menu span:after {
-        background: var(--accentColorDark);
-        display: block;
-        height: 4px;
-        opacity: 1;
-        position: absolute;
-        transition: 0.3s ease-in-out;
+      background: var(--accentColorDark);
+      display: block;
+      height: 4px;
+      opacity: 1;
+      position: absolute;
+      transition: 0.3s ease-in-out;
     }
     
     #burger-menu span:before,
     #burger-menu span:after {
-        content: "";
+      content: "";
     }
     
     #burger-menu span {
-        right: 0px;
-        top: 13px;
-        width: 27px;
+      right: 0px;
+      top: 13px;
+      width: 27px;
     }
     
     #burger-menu span:before {
-        left: 0px;
-        top: -10px;
-        width: 16px;
+      left: 0px;
+      top: -10px;
+      width: 16px;
     }
     
     #burger-menu span:after {
-        left: 0px;
-        top: 10px;
-        width: 20px;
+      left: 0px;
+      top: 10px;
+      width: 20px;
     }
     
     #burger-menu.close span {
-        transform: rotate(-45deg);
-        top: 13px;
-        width: 27px;
+      transform: rotate(-45deg);
+      top: 13px;
+      width: 27px;
     }
     
     #burger-menu.close span:before {
-        top: 0px;
-        transform: rotate(90deg);
-        width: 27px;
+      top: 0px;
+      transform: rotate(45deg);
+      width: 27px;
     }
     
     #burger-menu.close span:after {
-        top: 0px;
-        left: 0;
-        transform: rotate(90deg);
-        opacity: 0;
-        width: 0;
+      top: 0px;
+      left: 0;
+      transform: rotate(-45deg);
+      opacity: 1;
+      width: 27px;
     }
     
+    #burger-menu.active span:before {
+      top: 0px;
+      transform: rotate(45deg);
+      width: 27px;
+    }
+    
+    #burger-menu.active span:after {
+      top: 0px;
+      left: 0;
+      transform: rotate(-45deg);
+      opacity: 1;
+      width: 27px;
+    }
+
     .search-and-button {
         display: flex;
     }
@@ -391,13 +401,14 @@ class Header extends HTMLElement {
             <span></span>
         </a>
 
-      <div class="navbar-links">
-          <ul>
-              <li><a href="/index.html" id="homeLink">Home</a></li>
-              <li><a href="/views/products.html" id="productsLink">Products</a></li>
-              <li><a href="/views/about.html" id="aboutLink">About</a></li>
-          </ul>
-      </div>
+        <div class="navbar-links">
+        <ul>
+            <li><a href="/index.html" id="homeLink">Home</a></li>
+            <li><a href="/views/products.html" id="productsLink">Products</a></li>
+            <li><a href="/views/about.html" id="aboutLink">About</a></li>
+        </ul>
+    </div>
+    
 
       <div class="search-and-button">
       <div class="search">
@@ -422,27 +433,45 @@ class Header extends HTMLElement {
 
     </header>
       `;
-    // Memanggil fungsi untuk mengisi data produk ketika halaman dimuat
-    window.onload = function () {
+    // Move the event listener inside the connectedCallback
+    document.addEventListener("DOMContentLoaded", () => {
       const toggleButton = document.getElementsByClassName("toggle-button")[0];
       const navbarLinks = document.getElementsByClassName("navbar-links")[0];
       const searchAndButton =
         document.getElementsByClassName("search-and-button")[0];
-    
-      toggleButton.addEventListener("click", () => {
-        navbarLinks.classList.toggle("active");
-        searchAndButton.classList.toggle("active");
-        toggleButton.classList.toggle("active");
+
+      if (toggleButton && navbarLinks !== null) {
+        toggleButton.addEventListener("click", () => {
+          navbarLinks.classList.toggle("active");
+
+          // Check if searchAndButton exists before toggling its class
+          if (searchAndButton !== null) {
+            searchAndButton.classList.toggle("active");
+          }
+
+          toggleButton.classList.toggle("active");
+        });
+      }
+    });
+
+    var burgerMenu = document.getElementById("burger-menu");
+    var overlay = document.getElementById("menu");
+    if (burgerMenu && overlay !== null) {
+      burgerMenu.addEventListener("click", function () {
+        this.classList.toggle("close");
+        overlay.classList.toggle("overlay");
+
+        // Check if navbarLinks exists before toggling its class
+        if (navbarLinks !== null) {
+          navbarLinks.classList.remove("active");
+        }
+
+        // Check if searchAndButton exists before toggling its class
+        if (searchAndButton !== null) {
+          searchAndButton.classList.remove("active");
+        }
       });
-    };
-  
-  var burgerMenu = document.getElementById("burger-menu");
-  var overlay = document.getElementById("menu");
-  burgerMenu.addEventListener("click", function () {
-    this.classList.toggle("close");
-    overlay.classList.toggle("overlay");
-  }); 
-    
+    }
 
     // Define an array of menu items
     const menuItems = document.querySelectorAll(".navbar-links li a");
@@ -477,6 +506,5 @@ class Header extends HTMLElement {
     }
   }
 }
-
 
 customElements.define("header-component", Header);
