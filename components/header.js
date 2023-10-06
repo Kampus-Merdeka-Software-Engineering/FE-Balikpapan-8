@@ -3,9 +3,8 @@ class Header extends HTMLElement {
     super();
   }
 
+
   async connectedCallback() {
-    // Fetch data from detail-products.json using async/await
-    const productData = await fetchProductData();
 
     // const repositoryName = getRepositoryName();
     this.innerHTML = `
@@ -31,13 +30,13 @@ class Header extends HTMLElement {
         -o-transition: transform 0.3s ease-in-out;
     }
     
-    .brand-title a {
+    .navbar-brand {
         text-decoration: none;
         display: block;
         color: var(--accentColorDark);
     }
     
-    .brand-title span {
+    .navbar-brand-teks2 {
         color: var(--secondaryColor);
     }
 
@@ -383,14 +382,14 @@ class Header extends HTMLElement {
       <header>
       <nav class="navbar">
       <div class="brand-title">
-          <a href="index.html" class="navbar-brand">
+          <span class="navbar-brand">
               Robin<span class="navbar-brand-teks2">Code</span>
-            </a>
+          </span>
       </div>
 
       <a href="#" id="burger-menu" class="toggle-button">
-          <span></span>
-      </a>
+            <span></span>
+        </a>
 
       <div class="navbar-links">
           <ul>
@@ -429,57 +428,20 @@ class Header extends HTMLElement {
       const navbarLinks = document.getElementsByClassName("navbar-links")[0];
       const searchAndButton =
         document.getElementsByClassName("search-and-button")[0];
-
+    
       toggleButton.addEventListener("click", () => {
         navbarLinks.classList.toggle("active");
         searchAndButton.classList.toggle("active");
         toggleButton.classList.toggle("active");
       });
-
-      var burgerMenu = document.getElementById("burger-menu");
-      burgerMenu.addEventListener("click", function () {
-        this.classList.toggle("close");
-      });
-
-      // Mengambil pathname dari URL untuk menentukan halaman yang sedang diakses
-      var pathname = window.location.pathname;
-
-      if (pathname.endsWith("detail-products.html")) {
-        // Mengambil nama produk dari URL
-        var url = new URL(window.location.href);
-        var productName = url.searchParams.get("product");
-
-        if (productName) {
-          // Memanggil loadProductData untuk mendapatkan data produk dari detail-products.js
-          loadProductData(function (products) {
-            var product = products.find((p) => p.name === productName);
-            if (product) {
-              populateProductDetails(product);
-            } else {
-              // Tampilkan pesan jika produk tidak ditemukan
-              alert("Produk tidak ditemukan.");
-            }
-          });
-        } else {
-          alert("Parameter produk tidak ditemukan di URL.");
-        }
-      }
     };
-
-    async function fetchProductData() {
-      try {
-        const response = await fetch(`${API_BASE_URL}/views/products`);
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        const productData = await response.json();
-        console.log("Product data from server:", productData);
-        return productData;
-      } catch (error) {
-        console.error("Error fetching product data:", error);
-        throw error;
-      }
-    }
+  
+  var burgerMenu = document.getElementById("burger-menu");
+  var overlay = document.getElementById("menu");
+  burgerMenu.addEventListener("click", function () {
+    this.classList.toggle("close");
+    overlay.classList.toggle("overlay");
+  }); 
     
 
     // Define an array of menu items
@@ -516,13 +478,5 @@ class Header extends HTMLElement {
   }
 }
 
-// // Function to extract the repository name from the GitHub Pages URL
-// function getRepositoryName() {
-//   const currentURL = window.location.href;
-//   const parts = currentURL.split('/');
-//   const username = parts[3]; // Assuming the username is at this position in the URL
-//   const repositoryName = parts[4]; // Assuming the repository name is at this position
-//   return `${username}/${repositoryName}`;
-// }
 
 customElements.define("header-component", Header);
