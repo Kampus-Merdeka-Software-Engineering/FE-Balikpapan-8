@@ -382,7 +382,7 @@ class Header extends HTMLElement {
       </style>
       <header>
       <nav class="navbar">
-      <div class="brand-title" data-aos="zoom-in" data-aos-duration:"1000">
+      <div class="brand-title">
           <a href="index.html" class="navbar-brand">
               Robin<span class="navbar-brand-teks2">Code</span>
             </a>
@@ -392,7 +392,7 @@ class Header extends HTMLElement {
           <span></span>
       </a>
 
-      <div class="navbar-links" data-aos="zoom-in" data-aos-duration:"1000">
+      <div class="navbar-links">
           <ul>
               <li><a href="/index.html" id="homeLink">Home</a></li>
               <li><a href="/views/products.html" id="productsLink">Products</a></li>
@@ -400,7 +400,7 @@ class Header extends HTMLElement {
           </ul>
       </div>
 
-      <div class="search-and-button" data-aos="zoom-in" data-aos-duration:"1000">
+      <div class="search-and-button">
       <div class="search">
       <div class="search-box">
         <div class="search-field">
