@@ -1,6 +1,36 @@
 const API_BASE_URL = "https://be-balikpapan-8-production.up.railway.app";
 const productContainer = document.getElementById("product-container");
+const menuProducts = document.querySelector(".menu-products");
 
+// loadProductData untuk memuat data produk dari database
+loadProductData(function (products) {
+  if (Array.isArray(products)) {
+    // Add event listener to the menu for filtering
+    menuProducts.addEventListener("click", function (event) {
+      if (event.target.tagName === "A") {
+        const productType = event.target.getAttribute("data-filter");
+
+        // Remove the active class from all menu items
+        document.querySelectorAll(".menu-products a").forEach(function (item) {
+          item.classList.remove("active");
+        });
+
+        // Add the active class to the clicked menu item
+        event.target.classList.add("active");
+
+        filterProducts(products, productType);
+      }
+    });
+
+    // Display all products by default
+    displayProducts(products);
+  } else {
+    console.error("Expected an array of products, but received:", products);
+  }
+});
+
+
+// fungsi untuk menampilkan produk
 function loadProductData(callback) {
   fetch(`${API_BASE_URL}/views/products`)
     .then(function (response) {
@@ -10,8 +40,7 @@ function loadProductData(callback) {
       return response.json();
     })
     .then(function (productData) {
-      console.log("Product data from server:", productData);
-      callback(productData.data); // Use productData.data to access the array of products
+      callback(productData.data);
     })
     .catch(function (error) {
       console.error("Error fetching product data:", error);
@@ -48,12 +77,11 @@ function createProductElement(product) {
     icon: "fas fa-info-circle",
     action: "View Details",
     onClick: function () {
-      // Menampilkan halaman detail produk dengan parameter nama produk
       redirectToDetailPage(product.id);
     },
   };
 
-  // Make sure product.actions is an array before using forEach
+
   if (Array.isArray(product.actions)) {
     product.actions.forEach(function (action) {
       var icon = document.createElement("i");
@@ -113,26 +141,32 @@ function createProductElement(product) {
   return productCard;
 }
 
-// Fungsi untuk menampilkan halaman detail produk berdasarkan id produk yang dipilih
-function redirectToDetailPage(productId) {
-  // Buat URL tujuan berdasarkan id produk yang dipilih
-  var detailPageURL = `detail-products.html?productId=${encodeURIComponent(
-    productId
-  )}`;
-  window.location.href = detailPageURL;
+
+// Fungsi untuk menampilkan produk
+function displayProducts(products) {
+  productContainer.innerHTML = "";
+
+  products.forEach(function (product) {
+    const productCard = createProductElement(product);
+    productCard.addEventListener("click", function () {
+      redirectToDetailPage(product.id);
+    });
+    productContainer.appendChild(productCard);
+  });
 }
 
-// Menggunakan loadProductData untuk memuat data produk dari database
-loadProductData(function (products) {
-  if (Array.isArray(products)) {
-    products.forEach(function (product) {
-      var productCard = createProductElement(product);
-      productCard.addEventListener("click", function () {
-        redirectToDetailPage(product.id);
-      });
-      productContainer.appendChild(productCard);
-    });
-  } else {
-    console.error("Expected an array of products, but received:", products);
-  }
-});
+
+// Fungsi untuk memfilter produk berdasarkan tipe produk
+function filterProducts(products, productType) {
+  const filteredProducts = products.filter(function (product) {
+    return product.product_type === productType || productType === "all";
+  });
+
+  displayProducts(filteredProducts);
+}
+
+// Fungsi untuk mengarahkan ke halaman detail produk
+function redirectToDetailPage(productId) {
+  var detailPageURL = `detail-products.html?productId=${encodeURIComponent(productId)}`;
+  window.location.href = detailPageURL;
+}
