@@ -77,8 +77,11 @@ fetch(`${API_BASE_URL}/index`) // Fetch data from API endpoint
       productType.classList.add("product-type");
       productType.textContent = product.product_type;
 
+      // Create link for Explore button based on product type
       const exploreButtonContainer = document.createElement("a");
-      exploreButtonContainer.href = "./views/products.html";
+      exploreButtonContainer.href = `./views/products.html?type=${encodeURIComponent(
+        product.product_type
+      )}`;
 
       const iconButton = document.createElement("button");
       iconButton.classList.add("icon-button");
@@ -89,6 +92,28 @@ fetch(`${API_BASE_URL}/index`) // Fetch data from API endpoint
       const exploreButton = document.createElement("button");
       exploreButton.classList.add("explore-button");
       exploreButton.textContent = "Explore Now!";
+
+      // Add event listener to exploreButton
+      exploreButton.addEventListener("click", function () {
+        // Get the data-product-index attribute from the parent slide
+        const productIndex = exploreButton
+          .closest(".swiper-slide")
+          .getAttribute("data-product-index");
+
+        // Get the product based on the index
+        const product = products[parseInt(productIndex)];
+
+        // Redirect to the products page with the product type
+        window.location.href = `./views/products.html?type=${encodeURIComponent(
+          product.product_type
+        )}`;
+      });
+
+      // Add event listener to exploreButtonContainer
+      exploreButtonContainer.addEventListener("click", function (event) {
+        event.preventDefault();
+        window.location.href = exploreButtonContainer.href;
+      });
 
       // Assemble elements inside slide
       iconButton.appendChild(icon);
@@ -108,49 +133,46 @@ fetch(`${API_BASE_URL}/index`) // Fetch data from API endpoint
     console.error("Error fetching data:", error);
   });
 
-
- 
-
 // Get main container element
 const container = document.querySelector(".swiper");
-// Measure screen width
+
+// Get screen width
 const screenWidth = window.innerWidth;
 
-// Set main container width to match screen width
+// Untuk mengatur lebar maksimum kontainer
 container.style.maxWidth = `${screenWidth}px`;
 
-
 // Handle form submission
-const form = document.querySelector('#contact-form');
-form.addEventListener('submit', async (event) => {
+const form = document.querySelector("#contact-form");
+form.addEventListener("submit", async (event) => {
   event.preventDefault();
 
   // Mendefinisikan data formulir dengan struktur yang diinginkan
   const formData = {
-    name: document.querySelector('#name').value,
-    email: document.querySelector('#email').value,
-    message: document.querySelector('#message').value,
+    name: document.querySelector("#name").value,
+    email: document.querySelector("#email").value,
+    message: document.querySelector("#message").value,
   };
 
   try {
     // Mengirimkan data formulir ke server menggunakan endpoint API
     const response = await fetch(`${API_BASE_URL}/index`, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(formData),
     });
 
     if (!response.ok) {
-      throw new Error('Network response was not ok');
+      throw new Error("Network response was not ok");
     }
 
     const responseData = await response.json();
-    console.log('Form data sent successfully:', responseData);
+    console.log("Form data sent successfully:", responseData);
 
     // Menampilkan pesan pop-up
-    window.alert('Form data has been sent successfully!');
+    window.alert("Form data has been sent successfully!");
 
     // Melakukan sesuatu dengan data respons jika diperlukan
     const formId = responseData.formId;
@@ -159,6 +181,6 @@ form.addEventListener('submit', async (event) => {
     // Reset formulir setelah pengiriman yang berhasil
     form.reset();
   } catch (error) {
-    console.error('Error sending form data:', error);
+    console.error("Error sending form data:", error);
   }
 });

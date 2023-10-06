@@ -2,37 +2,38 @@ const API_BASE_URL = "https://be-balikpapan-8-production.up.railway.app";
 const productContainer = document.getElementById("product-container");
 const menuProducts = document.querySelector(".menu-products");
 
-// loadProductData untuk memuat data produk dari database
-loadProductData(function (products) {
-  if (Array.isArray(products)) {
-    // Add event listener to the menu for filtering
-    menuProducts.addEventListener("click", function (event) {
-      if (event.target.tagName === "A") {
-        const productType = event.target.getAttribute("data-filter");
 
-        // Remove the active class from all menu items
-        document.querySelectorAll(".menu-products a").forEach(function (item) {
-          item.classList.remove("active");
-        });
+// Load product data based on type from the URL
+loadProductData(getProductTypeFromUrl());
 
-        // Add the active class to the clicked menu item
-        event.target.classList.add("active");
+// Add event listener to the menu for filtering
+menuProducts.addEventListener("click", function (event) {
+  if (event.target.tagName === "A") {
+    const productType = event.target.getAttribute("data-filter");
 
-        filterProducts(products, productType);
-      }
+    // Remove the active class from all menu items
+    document.querySelectorAll(".menu-products a").forEach(function (item) {
+      item.classList.remove("active");
     });
 
-    // Display all products by default
-    displayProducts(products);
-  } else {
-    console.error("Expected an array of products, but received:", products);
+    // Add the active class to the clicked menu item
+    event.target.classList.add("active");
+
+    // Load product data based on type
+    loadProductData(productType);
   }
 });
+// Function to load product data
+function loadProductData(productType) {
+  let url = `${API_BASE_URL}/views/productsByType`;
 
+  // Append type parameter to the URL if specified
+  if (productType) {
+    // Construct URL with type parameter
+    url += `?type=${encodeURIComponent(productType)}`;
+  }
 
-// fungsi untuk menampilkan produk
-function loadProductData(callback) {
-  fetch(`${API_BASE_URL}/views/products`)
+  fetch(url)
     .then(function (response) {
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
@@ -40,12 +41,30 @@ function loadProductData(callback) {
       return response.json();
     })
     .then(function (productData) {
-      callback(productData.data);
+      // Update active class on menu item
+      updateActiveMenu(productType);
+
+      displayProducts(productData.data);
     })
     .catch(function (error) {
       console.error("Error fetching product data:", error);
     });
 }
+
+// Function to update active class on menu item
+function updateActiveMenu(productType) {
+  document.querySelectorAll(".menu-products a").forEach(function (item) {
+    // Remove the active class from all menu items
+    item.classList.remove("active");
+
+    // Add the active class to the clicked menu item
+    if (item.getAttribute("data-filter") === productType || (productType === null && item.getAttribute("data-filter") === "all")) {
+      item.classList.add("active");
+    }
+  });
+}
+
+
 
 // Fungsi untuk membuat elemen produk HTML dari data JSON
 function createProductElement(product) {
@@ -141,11 +160,9 @@ function createProductElement(product) {
   return productCard;
 }
 
-
-// Fungsi untuk menampilkan produk
+// Function to display products
 function displayProducts(products) {
   productContainer.innerHTML = "";
-
   products.forEach(function (product) {
     const productCard = createProductElement(product);
     productCard.addEventListener("click", function () {
@@ -155,8 +172,7 @@ function displayProducts(products) {
   });
 }
 
-
-// Fungsi untuk memfilter produk berdasarkan tipe produk
+// Function to filter products based on product type
 function filterProducts(products, productType) {
   const filteredProducts = products.filter(function (product) {
     return product.product_type === productType || productType === "all";
@@ -165,8 +181,14 @@ function filterProducts(products, productType) {
   displayProducts(filteredProducts);
 }
 
-// Fungsi untuk mengarahkan ke halaman detail produk
+// Function to redirect to the detail page
 function redirectToDetailPage(productId) {
   var detailPageURL = `detail-products.html?productId=${encodeURIComponent(productId)}`;
   window.location.href = detailPageURL;
 }
+
+function getProductTypeFromUrl() {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get('type') || null;
+}
+
