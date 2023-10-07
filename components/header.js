@@ -433,24 +433,24 @@ class Header extends HTMLElement {
 
     </header>
       `;
-    document.addEventListener("DOMContentLoaded", () => {
-      const toggleButton = this.querySelector(".toggle-button");
-      const navbarLinks = this.querySelector(".navbar-links");
-      const searchAndButton = this.querySelector(".search-and-button");
-
-      if (toggleButton && navbarLinks !== null) {
-        toggleButton.addEventListener("click", () => {
-          navbarLinks.classList.toggle("active");
-
-          // Check if searchAndButton exists before toggling its class
-          if (searchAndButton !== null) {
-            searchAndButton.classList.toggle("active");
-          }
-
-          toggleButton.classList.toggle("active");
-        });
-      }
-    });
+      document.addEventListener("DOMContentLoaded", () => {
+        const toggleButton = this.querySelector(".toggle-button");
+        const navbarLinks = this.querySelector(".navbar-links");
+        const searchAndButton = this.querySelector(".search-and-button");
+  
+        if (toggleButton && navbarLinks !== null) {
+          toggleButton.addEventListener("click", () => {
+            navbarLinks.classList.toggle("active");
+  
+            // Check if searchAndButton exists before toggling its class
+            if (searchAndButton !== null) {
+              searchAndButton.classList.toggle("active");
+            }
+  
+            toggleButton.classList.toggle("active");
+          });
+        }
+      });
 
     var burgerMenu = this.querySelector("#burger-menu");
     var overlay = document.getElementById("menu");
@@ -471,62 +471,20 @@ class Header extends HTMLElement {
       });
     }
 
-    // Define an array of menu items
     const menuItems = this.querySelectorAll(".navbar-links li a");
+    const currentPage = window.location.pathname;
 
-    // Get the current page URL
-    const currentPageURL = window.location.href;
-
-    // Loop through the menu items and check if their href matches the current URL
     menuItems.forEach((menuItem) => {
       const menuItemURL = menuItem.getAttribute("href");
+      const isActive =
+        (isDetailPage && menuItemURL.endsWith(".html")) ||
+        (!isDetailPage && menuItemURL.endsWith("/views/index.html"));
 
-      if (currentPageURL.endsWith(menuItemURL)) {
+      if (isActive) {
         menuItem.classList.add("active");
-      } else {
-        menuItem.classList.remove("active");
       }
     });
 
-    // Add "active" class to the link corresponding to the active page
-    const homeLink = this.querySelector("#homeLink");
-    const productsLink = this.querySelector("#productsLink");
-    const aboutLink = this.querySelector("#aboutLink");
-
-
-    homeLink.addEventListener("click", (event) => {
-      event.preventDefault();
-      updateURL(
-        `/${username}/${repositoryName}${
-          isDetailProductsPage() ? "" : "/views"
-        }/index.html`
-      );
-    });
-
-    productsLink.addEventListener("click", (event) => {
-      event.preventDefault();
-      updateURL(
-        `/${username}/${repositoryName}${
-          isDetailProductsPage() ? "" : "/views"
-        }/products.html`
-      );
-    });
-
-    aboutLink.addEventListener("click", (event) => {
-      event.preventDefault();
-      updateURL(
-        `/${username}/${repositoryName}${
-          isDetailProductsPage() ? "" : "/views"
-        }/about.html`
-      );
-    });
-
-    function isDetailProductsPage() {
-      const currentPage = window.location.pathname;
-      return currentPage.endsWith("/detail-products.html");
-    }
-
-    const currentPage = window.location.pathname;
 
     if (currentPage.endsWith("index.html")) {
       homeLink.classList.add("active");
@@ -544,6 +502,11 @@ function getRepositoryName() {
   const username = parts[3];
   const repositoryName = parts[4];
   return { username, repositoryName };
+}
+
+function isDetailProductsPage() {
+  const currentPage = window.location.pathname;
+  return currentPage.endsWith("detail-products.html");
 }
 
 // Mendefinisikan fungsi untuk mengubah URL saat tautan navbar diklik
