@@ -4,7 +4,7 @@ class Header extends HTMLElement {
   }
 
   async connectedCallback() {
-    const repositoryName = getRepositoryName();
+    const { username, repositoryName } = getRepositoryName();
     this.innerHTML = `
       <style>
       .navbar {
@@ -508,14 +508,14 @@ class Header extends HTMLElement {
 }
 
 
-// Function to extract the repository name from the GitHub Pages URL
 function getRepositoryName() {
   const currentURL = window.location.href;
   const parts = currentURL.split('/');
   const username = parts[3];
   const repositoryName = parts[4];
-  return `${username}/${repositoryName}`;
+  return { username, repositoryName };
 }
+
 
 
 customElements.define("header-component", Header);
