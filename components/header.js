@@ -471,56 +471,55 @@ class Header extends HTMLElement {
       });
     }
 
-  // Mendapatkan tautan-tautan navbar
-  const homeLink = this.querySelector("#homeLink");
-  const productsLink = this.querySelector("#productsLink");
-  const aboutLink = this.querySelector("#aboutLink");
+    // Mendapatkan tautan-tautan navbar
+    const homeLink = this.querySelector("#homeLink");
+    const productsLink = this.querySelector("#productsLink");
+    const aboutLink = this.querySelector("#aboutLink");
 
-  // Event listener untuk mengubah halaman saat tautan diklik
-  homeLink.addEventListener("click", function (e) {
-    e.preventDefault();
-    window.location.href = `/${username}/${repositoryName}/index.html`;
-  });
+    // Event listener untuk mengubah halaman saat tautan diklik
+    homeLink.addEventListener("click", function (e) {
+      e.preventDefault();
+      window.location.href = `/${username}/${repositoryName}/index.html`;
+    });
 
-  productsLink.addEventListener("click", function (e) {
-    e.preventDefault();
-    window.location.href = `/${username}/${repositoryName}/products.html`;
-  });
+    productsLink.addEventListener("click", function (e) {
+      e.preventDefault();
+      window.location.href = `/${username}/${repositoryName}/products.html`;
+    });
 
-  aboutLink.addEventListener("click", function (e) {
-    e.preventDefault();
-    window.location.href = `/${username}/${repositoryName}/about.html`;
-  });
+    aboutLink.addEventListener("click", function (e) {
+      e.preventDefault();
+      window.location.href = `/${username}/${repositoryName}/about.html`;
+    });
 
-  // Menambahkan kelas "active" ke tautan sesuai dengan halaman yang sedang aktif
-  if (currentPage.endsWith("index.html")) {
-    homeLink.classList.add("active");
-  } else if (currentPage.endsWith("products.html")) {
-    productsLink.classList.add("active");
-  } else if (currentPage.endsWith("about.html")) {
-    aboutLink.classList.add("active");
+    // Menambahkan kelas "active" ke tautan sesuai dengan halaman yang sedang aktif
+    if (currentPage.endsWith("index.html")) {
+      homeLink.classList.add("active");
+    } else if (currentPage.endsWith("products.html")) {
+      productsLink.classList.add("active");
+    } else if (currentPage.endsWith("about.html")) {
+      aboutLink.classList.add("active");
+    }
+
+    // Event listener untuk mengubah halaman saat tautan "Products" diklik
+    productsLink.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      // Dapatkan URL tanpa parameter query
+      const newURL = `/${username}/${repositoryName}/products.html`;
+
+      // Pindah ke halaman baru
+      window.location.href = newURL;
+    });
   }
-
-  // Event listener untuk mengubah halaman saat tautan "Products" diklik
-productsLink.addEventListener("click", function (e) {
-  e.preventDefault();
-
-  // Dapatkan URL tanpa parameter query
-  const newURL = `/${username}/${repositoryName}/products.html`;
-
-  // Pindah ke halaman baru
-  window.location.href = newURL;
-});
-
-}
 }
 
 function getRepositoryName() {
-const currentURL = window.location.href;
-const parts = currentURL.split("/");
-const username = parts[3];
-const repositoryName = parts[4];
-return { username, repositoryName };
+  const currentURL = window.location.href;
+  const parts = currentURL.split("/");
+  const username = parts[3];
+  const repositoryName = parts[4];
+  return { username, repositoryName };
 }
 
 customElements.define("header-component", Header);
