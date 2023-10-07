@@ -1,5 +1,4 @@
 const API_BASE_URL = "https://be-balikpapan-8-production.up.railway.app";
-let cachedProductData;
 
 // Fungsi untuk memuat data produk dari API menggunakan fetch
 function loadProductData(callback) {
@@ -11,30 +10,27 @@ function loadProductData(callback) {
     console.error("Product ID is missing in the URL.");
     return;
   }
-  // Jika data produk sudah di-cache, gunakan data tersebut
-  if (cachedProductData) {
-    callback(cachedProductData);
-  } else {
-    // Fetch data dari API
-    fetch(
-      `${API_BASE_URL}/detail-products.html?productId=${encodeURIComponent(
-        productId
-      )}`
-    )
-      .then(function (response) {
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then(function (productData) {
-        callback(productData.data);
-      })
-      .catch(function (error) {
-        console.error("Error fetching product data:", error);
-      });
-  }
+
+  // Fetch data dari API
+  fetch(
+    `${API_BASE_URL}/detail-products.html?productId=${encodeURIComponent(
+      productId
+    )}`
+  )
+    .then(function (response) {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then(function (productData) {
+      callback(productData.data);
+    })
+    .catch(function (error) {
+      console.error("Error fetching product data:", error);
+    });
 }
+
 // Fungsi untuk mengisi data produk ke dalam elemen HTML
 function populateProductDetails(product) {
   const productImage = document.getElementById("product-image");
@@ -97,28 +93,20 @@ function populateProductDetails(product) {
     .join("");
   productReviews.innerHTML = reviewsList;
 }
-
-// Fungsi untuk mengganti halaman tanpa memuat ulang
-function changePage(url) {
-  window.history.pushState({}, "", url);
-}
-
-
 // Memanggil fungsi untuk mengisi data produk ketika halaman dimuat
 window.onload = function () {
   // Memanggil loadProductData untuk mendapatkan data produk dari API
   loadProductData(function (product) {
     if (product) {
       populateProductDetails(product);
-      // Update URL dengan ID produk yang dipilih
-      updateURL(product.id);
     } else {
       // Tampilkan pesan jika produk tidak ditemukan.
       alert("Produk tidak ditemukan.");
     }
   });
 };
-// Script Description and review (tidak perlu mempengaruhi URL di sini)
+
+// Script Description and review
 document
   .getElementById("description-button")
   .addEventListener("click", function () {
