@@ -477,11 +477,11 @@ class Header extends HTMLElement {
     ];
     for (const link of links) {
       const linkElement = this.querySelector(`#${link.id}`);
-      if (
-        linkElement &&
-        currentPage.endsWith(`${username}/${repositoryName}/${link.url}`)
-      ) {
-        linkElement.classList.add("active");
+      if (linkElement) {
+        const linkURL = `/${username}/${repositoryName}/${link.url}`;
+        if (currentPage.endsWith(linkURL)) {
+          linkElement.classList.add("active");
+        }
       }
     }
   }
