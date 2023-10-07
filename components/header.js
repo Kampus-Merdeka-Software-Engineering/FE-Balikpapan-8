@@ -538,18 +538,23 @@ function navigateToPage(endpoint) {
   window.location.href = pageURL;
 }
 
-// Add event listeners to navbar links
-document.getElementById('homeLink').addEventListener('click', function() {
-  navigateToPage('index.html');
-});
 
-document.getElementById('productsLink').addEventListener('click', function() {
-  navigateToPage('views/products.html');
-});
+document.addEventListener("DOMContentLoaded", () => {
+  const homeLink = document.getElementById("homeLink");
+  const productsLink = document.getElementById("productsLink");
+  const aboutLink = document.getElementById("aboutLink");
 
-document.getElementById('aboutLink').addEventListener('click', function() {
-  navigateToPage('views/about.html');
-});
+  homeLink.addEventListener("click", () => {
+    this.navigateToPage('index.html');
+  });
 
+  productsLink.addEventListener("click", () => {
+    this.navigateToPage('views/products.html');
+  });
+
+  aboutLink.addEventListener("click", () => {
+    this.navigateToPage('views/about.html');
+  });
+});
 
 customElements.define("header-component", Header);
