@@ -3,20 +3,6 @@ class Header extends HTMLElement {
     super();
   }
 
-   getRepositoryName() {
-    const currentURL = window.location.href;
-    const parts = currentURL.split('/');
-    const username = parts[3];
-    const repositoryName = parts[4];
-    return `${username}/${repositoryName}`;
-  }
-
-  navigateToPage(endpoint) {
-    const repositoryName = this.getRepositoryName();
-    const pageURL = `https://${repositoryName}/FE-Balikpapan-8/${endpoint}`;
-    window.location.href = pageURL;
-  }
-
   async connectedCallback() {
     // const repositoryName = getRepositoryName();
     this.innerHTML = `
@@ -417,9 +403,9 @@ class Header extends HTMLElement {
 
         <div class="navbar-links">
         <ul>
-            <li><a href="/index.html" id="homeLink">Home</a></li>
-            <li><a href="/views/products.html" id="productsLink">Products</a></li>
-            <li><a href="/views/about.html" id="aboutLink">About</a></li>
+            <li><a href="${username}/${repositoryName}/index.html" id="homeLink">Home</a></li>
+            <li><a href="${username}/${repositoryName}/views/products.html" id="productsLink">Products</a></li>
+            <li><a href="${username}/${repositoryName}/views/about.html" id="aboutLink">About</a></li>
         </ul>
     </div>
     
@@ -531,30 +517,5 @@ function getRepositoryName() {
   return `${username}/${repositoryName}`;
 }
 
-// Function to handle navigation when a navbar link is clicked
-function navigateToPage(endpoint) {
-  const repositoryName = getRepositoryName();
-  const pageURL = `https://${repositoryName}/${endpoint}`;
-  window.location.href = pageURL;
-}
-
-
-document.addEventListener("DOMContentLoaded", () => {
-  const homeLink = document.getElementById("homeLink");
-  const productsLink = document.getElementById("productsLink");
-  const aboutLink = document.getElementById("aboutLink");
-
-  homeLink.addEventListener("click", () => {
-    this.navigateToPage('index.html');
-  });
-
-  productsLink.addEventListener("click", () => {
-    this.navigateToPage('views/products.html');
-  });
-
-  aboutLink.addEventListener("click", () => {
-    this.navigateToPage('views/about.html');
-  });
-});
 
 customElements.define("header-component", Header);
