@@ -504,15 +504,5 @@ function getRepositoryName() {
   return { username, repositoryName };
 }
 
-function isDetailProductsPage() {
-  const currentPage = window.location.pathname;
-  return currentPage.endsWith("detail-products.html");
-}
-
-// Mendefinisikan fungsi untuk mengubah URL saat tautan navbar diklik
-function updateURL(path) {
-  const currentState = window.history.state;
-  window.history.pushState(currentState, "", path);
-}
 
 customElements.define("header-component", Header);
