@@ -942,7 +942,7 @@ button[type="submit"]:active {
     }
 
     textarea {
-        min-width: 390px;
+        width: 390px;
     }
 }
 
