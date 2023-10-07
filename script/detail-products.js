@@ -111,7 +111,7 @@ window.onload = function () {
 
 
 };
-// Script Description and review
+// Script Description and review (tidak perlu mempengaruhi URL di sini)
 document
   .getElementById("description-button")
   .addEventListener("click", function () {
@@ -133,7 +133,7 @@ document
       .classList.remove("active");
     this.classList.add("active");
   });
-
+  
 // Fungsi untuk mendapatkan nilai parameter dari URL berdasarkan nama parameter
 function getParameterByName(name, url = window.location.href) {
   name = name.replace(/[\[\]]/g, "\\$&");

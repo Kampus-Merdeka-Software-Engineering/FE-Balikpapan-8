@@ -5,6 +5,7 @@ class Header extends HTMLElement {
 
   async connectedCallback() {
     const { username, repositoryName } = getRepositoryName();
+    const currentPage = window.location.href;
     this.innerHTML = `
       <style>
       .navbar {
@@ -433,25 +434,24 @@ class Header extends HTMLElement {
 
     </header>
       `;
-      document.addEventListener("DOMContentLoaded", () => {
-        const toggleButton = this.querySelector(".toggle-button");
-        const navbarLinks = this.querySelector(".navbar-links");
-        const searchAndButton = this.querySelector(".search-and-button");
-  
-        if (toggleButton && navbarLinks !== null) {
-          toggleButton.addEventListener("click", () => {
-            navbarLinks.classList.toggle("active");
-  
-            // Check if searchAndButton exists before toggling its class
-            if (searchAndButton !== null) {
-              searchAndButton.classList.toggle("active");
-            }
-  
-            toggleButton.classList.toggle("active");
-          });
-        }
-      });
+    const toggleButton = this.querySelector(".toggle-button");
+    const navbarLinks = this.querySelector(".navbar-links");
+    const searchAndButton = this.querySelector(".search-and-button");
 
+    if (toggleButton && navbarLinks !== null) {
+      toggleButton.addEventListener("click", () => {
+        navbarLinks.classList.toggle("active");
+
+        // Check if searchAndButton exists before toggling its class
+        if (searchAndButton !== null) {
+          searchAndButton.classList.toggle("active");
+        }
+
+        toggleButton.classList.toggle("active");
+      });
+    }
+
+    // Menambahkan event listener untuk tombol burger menu
     var burgerMenu = this.querySelector("#burger-menu");
     var overlay = document.getElementById("menu");
     if (burgerMenu && overlay !== null) {
@@ -471,38 +471,44 @@ class Header extends HTMLElement {
       });
     }
 
-    const menuItems = this.querySelectorAll(".navbar-links li a");
-    const currentPage = window.location.pathname;
+  // Mendapatkan tautan-tautan navbar
+  const homeLink = this.querySelector("#homeLink");
+  const productsLink = this.querySelector("#productsLink");
+  const aboutLink = this.querySelector("#aboutLink");
 
-    menuItems.forEach((menuItem) => {
-      const menuItemURL = menuItem.getAttribute("href");
-      const isActive =
-        (isDetailPage && menuItemURL.endsWith(".html")) ||
-        (!isDetailPage && menuItemURL.endsWith("/index.html"));
+  // Event listener untuk mengubah halaman saat tautan diklik
+  homeLink.addEventListener("click", function (e) {
+    e.preventDefault();
+    window.location.href = `/${username}/${repositoryName}/index.html`;
+  });
 
-      if (isActive) {
-        menuItem.classList.add("active");
-      }
-    });
+  productsLink.addEventListener("click", function (e) {
+    e.preventDefault();
+    window.location.href = `/${username}/${repositoryName}/products.html`;
+  });
 
+  aboutLink.addEventListener("click", function (e) {
+    e.preventDefault();
+    window.location.href = `/${username}/${repositoryName}/about.html`;
+  });
 
-    if (currentPage.endsWith("index.html")) {
-      homeLink.classList.add("active");
-    } else if (currentPage.endsWith("products.html")) {
-      productsLink.classList.add("active");
-    } else if (currentPage.endsWith("about.html")) {
-      aboutLink.classList.add("active");
-    }
+  // Menambahkan kelas "active" ke tautan sesuai dengan halaman yang sedang aktif
+  if (currentPage.endsWith("index.html")) {
+    homeLink.classList.add("active");
+  } else if (currentPage.endsWith("products.html")) {
+    productsLink.classList.add("active");
+  } else if (currentPage.endsWith("about.html")) {
+    aboutLink.classList.add("active");
   }
+}
 }
 
 function getRepositoryName() {
-  const currentURL = window.location.href;
-  const parts = currentURL.split("/");
-  const username = parts[3];
-  const repositoryName = parts[4];
-  return { username, repositoryName };
+const currentURL = window.location.href;
+const parts = currentURL.split("/");
+const username = parts[3];
+const repositoryName = parts[4];
+return { username, repositoryName };
 }
-
 
 customElements.define("header-component", Header);
