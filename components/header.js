@@ -471,22 +471,6 @@ class Header extends HTMLElement {
       });
     }
 
-    // Event listener untuk mengubah halaman saat tautan diklik
-    homeLink.addEventListener("click", function (e) {
-      e.preventDefault();
-      window.location.href = `/index.html`; // Menghilangkan "${username}/${repositoryName}" dari URL
-    });
-
-    productsLink.addEventListener("click", function (e) {
-      e.preventDefault();
-      window.location.href = `/products.html`; // Menghilangkan "${username}/${repositoryName}" dari URL
-    });
-
-    aboutLink.addEventListener("click", function (e) {
-      e.preventDefault();
-      window.location.href = `/about.html`; // Menghilangkan "${username}/${repositoryName}" dari URL
-    });
-
     // Menambahkan kelas "active" ke tautan sesuai dengan halaman yang sedang aktif
     if (currentPage.endsWith("index.html")) {
       homeLink.classList.add("active");
