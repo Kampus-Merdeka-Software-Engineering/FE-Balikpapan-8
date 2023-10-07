@@ -4,7 +4,6 @@ class Header extends HTMLElement {
   }
 
   async connectedCallback() {
-    const { username, repositoryName } = getRepositoryName();
     const currentPage = window.location.href;
     this.innerHTML = `
       <style>
@@ -404,9 +403,9 @@ class Header extends HTMLElement {
 
         <div class="navbar-links">
         <ul>
-        <li><a href="/${username}/${repositoryName}/index.html" id="homeLink">Home</a></li>
-        <li><a href="/${username}/${repositoryName}/products.html" id="productsLink">Products</a></li>
-        <li><a href="/${username}/${repositoryName}/about.html" id="aboutLink">About</a></li>
+        <li><a href="./index.html" id="homeLink">Home</a></li>
+        <li><a href="./products.html" id="productsLink">Products</a></li>
+        <li><a href="./about.html" id="aboutLink">About</a></li>
       </ul>
     </div>
     
@@ -441,8 +440,6 @@ class Header extends HTMLElement {
     if (toggleButton && navbarLinks !== null) {
       toggleButton.addEventListener("click", () => {
         navbarLinks.classList.toggle("active");
-
-        // Check if searchAndButton exists before toggling its class
         if (searchAndButton !== null) {
           searchAndButton.classList.toggle("active");
         }
@@ -472,11 +469,16 @@ class Header extends HTMLElement {
     }
 
     // Menambahkan kelas "active" ke tautan sesuai dengan halaman yang sedang aktif
-    if (currentPage.endsWith("index.html")) {
+    const { username, repositoryName } = getRepositoryName();
+    if (currentPage.endsWith(`${username}/${repositoryName}/index.html`)) {
       homeLink.classList.add("active");
-    } else if (currentPage.endsWith("products.html")) {
+    } else if (
+      currentPage.endsWith(`${username}/${repositoryName}/products.html`)
+    ) {
       productsLink.classList.add("active");
-    } else if (currentPage.endsWith("about.html")) {
+    } else if (
+      currentPage.endsWith(`${username}/${repositoryName}/about.html`)
+    ) {
       aboutLink.classList.add("active");
     }
   }
