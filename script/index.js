@@ -141,7 +141,6 @@ const screenWidth = window.innerWidth;
 
 // Untuk mengatur lebar maksimum kontainer
 container.style.maxWidth = `${screenWidth}px`;
-
 // Handle form submission
 const form = document.querySelector("#contact-form");
 form.addEventListener("submit", async (event) => {
@@ -171,8 +170,22 @@ form.addEventListener("submit", async (event) => {
     const responseData = await response.json();
     console.log("Form data sent successfully:", responseData);
 
-    // Menampilkan pesan pop-up
-    window.alert("Form data has been sent successfully!");
+    // Menampilkan pesan pop-up menggunakan Sweet Alert dengan gaya sesuai web e-commerce
+    Swal.fire({
+      icon: "success",
+      title: "Thank You!",
+      text: "Your message has been successfully sent! 🚀 We appreciate your awesome feedback to Thrift Fashion Robincode. Get ready for something exciting!",
+      customClass: {
+        popup: "robin-swal-popup", // Sesuaikan dengan nama kelas CSS yang diinginkan
+        title: "robin-swal-title",
+        content: "robin-swal-content",
+        confirmButton: "robin-swal-confirm-button",
+      },
+      buttonsStyling: false,
+      showConfirmButton: true,
+      confirmButtonText: "OK",
+      timer: 10000,
+    });
 
     // Melakukan sesuatu dengan data respons jika diperlukan
     const formId = responseData.formId;

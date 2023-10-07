@@ -945,3 +945,42 @@ button[type="submit"]:active {
         width: 390px;
     }
 }
+
+
+/* Style yang digunakan di Sweet Alert */
+.robin-swal-popup {
+    background-color: var(--primaryColor);
+    border-radius: 12px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    -ms-border-radius: 12px;
+    -o-border-radius: 12px;
+}
+  
+  .robin-swal-title {
+    color: #333;
+  }
+  
+  .robin-swal-content {
+    color: #555;
+  }
+  
+  .robin-swal-confirm-button {
+    background-color: var(--accentColorDark);
+    color: var(--primaryColor);
+    border: 1px solid var(--accentColorDark);
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .robin-swal-confirm-button:hover {
+    background-color: var(--primaryColor);
+    color: var(--accentColorDark);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
