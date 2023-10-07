@@ -4,6 +4,7 @@ class ArrowBack extends HTMLElement {
     }
   
     connectedCallback() {
+      const { username, repositoryName } = getRepositoryName();
       this.innerHTML = `
       <style>
       /* Style for the arrow-back container */
@@ -48,12 +49,20 @@ class ArrowBack extends HTMLElement {
     </style>
     <!-- ArrowBack -->
     <div class="arrow-back">
-        <a href="/views/products.html"><i class="fas fa-arrow-left"></i></a>
+        <a href="/${username}/${repositoryName}views/products.html"><i class="fas fa-arrow-left"></i></a>
     </div>
     <!-- End ArrowBack -->
     
         `;
     }
+  }
+
+  function getRepositoryName() {
+    const currentURL = window.location.href;
+    const parts = currentURL.split('/');
+    const username = parts[3];
+    const repositoryName = parts[4];
+    return { username, repositoryName };
   }
   
   customElements.define("arrow-back", ArrowBack);
