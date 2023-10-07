@@ -37,7 +37,7 @@ Proyek "RobinCode" dibangun dengan teknologi terkini, termasuk:
 
 ## 📖 Cara Menggunakan Proyek
 
-1. Clone repositori ini ke komputer Anda.
+1. Clone repositori BE-Balikpapan-8 ke komputer Anda.
 2. Install dependensi dengan menjalankan perintah `npm install`.
 3. Jalankan proyek dengan perintah `npm start`.
 
