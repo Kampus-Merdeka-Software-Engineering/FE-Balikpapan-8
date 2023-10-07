@@ -265,26 +265,26 @@ footer {
         <ul>
           <li class="menu-header">Catalog</li>
           <ul class="list-menu">
-            <li><a href="../views/products.html">Jeans</a></li>
-            <li><a href="../views/products.html">Hoodie</a></li>
-            <li><a href="../views/products.html">T-Shirt</a></li>
-            <li><a href="../views/products.html">Coats & Parkas</a></li>
+            <li><a href="#">Jeans</a></li>
+            <li><a href="#">Hoodie</a></li>
+            <li><a href="#">T-Shirt</a></li>
+            <li><a href="#">Coats</a></li>
           </ul>
         </ul>
       </div>
       <div class="category-catalog-2">
         <ul class="list-menu">
           <li class="right-align">
-            <a href="../views/products.html">Shorts</a>
+            <a href="#">Shorts</a>
           </li>
           <li class="right-align">
-            <a href="../views/products.html">Shirt</a>
+            <a href="#">Shirt</a>
           </li>
           <li class="right-align">
-            <a href="../views/products.html">Sweater</a>
+            <a href="#">Sweater</a>
           </li>
           <li class="right-align">
-            <a href="../views/products.html">Jacket</a>
+            <a href="#">Jacket</a>
           </li>
         </ul>
       </div>
@@ -296,7 +296,65 @@ footer {
 
   <!-- End Footer -->
       `;
+
+    // Function to load product data from the API
+    function loadProductData(productType) {
+      let url = `${API_BASE_URL}/views/productsByType`;
+      if (productType) {
+        url += `?type=${encodeURIComponent(productType)}`;
+      }
+
+      // Fetch product data from the API
+      fetch(url)
+        .then((response) => response.json())
+        .then((data) => {
+          renderProductData(data);
+        })
+        .catch((error) => {
+          console.error("Error fetching product data:", error);
+        });
+    }
+
+    const catalog1Items = document.querySelectorAll(
+      ".category-catalog-1 .list-menu a"
+    );
+    catalog1Items.forEach((item) => {
+      item.addEventListener("click", (event) => {
+        event.preventDefault();
+        const productType = event.currentTarget.textContent;
+        if (productType) {
+          window.location.href = `../views/products.html?type=${encodeURIComponent(
+            productType
+          )}`;
+        }
+      });
+    });
+
+    const catalog2Items = document.querySelectorAll(
+      ".category-catalog-2 .list-menu a"
+    );
+    catalog2Items.forEach((item) => {
+      item.addEventListener("click", (event) => {
+        event.preventDefault();
+        const productType = event.currentTarget.textContent;
+        if (productType) {
+          window.location.href = `../views/products.html?type=${encodeURIComponent(
+            productType
+          )}`;
+        }
+      });
+    });
+
+    // Function to get product type from the URL
+    function getProductTypeFromUrl() {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get("type") || null;
+    }
+
+    const initialProductType = getProductTypeFromUrl();
+    if (initialProductType) {
+      loadProductData(initialProductType);
+    }
   }
 }
-
 customElements.define("footer-component", Footer);
