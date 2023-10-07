@@ -174,7 +174,7 @@ form.addEventListener("submit", async (event) => {
     Swal.fire({
       icon: "success",
       title: "Thank You!",
-      text: "Your message has been successfully sent! 🚀 We appreciate your awesome feedback to Thrift Fashion Robincode. Get ready for something exciting!",
+      text: "Your message has been successfully sent! We appreciate your awesome feedback to Thrift Fashion Robincode. Get ready for something exciting!",
       customClass: {
         popup: "robin-swal-popup", // Sesuaikan dengan nama kelas CSS yang diinginkan
         title: "robin-swal-title",
