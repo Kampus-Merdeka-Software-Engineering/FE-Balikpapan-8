@@ -493,20 +493,38 @@ class Header extends HTMLElement {
     const productsLink = this.querySelector("#productsLink");
     const aboutLink = this.querySelector("#aboutLink");
 
+
     homeLink.addEventListener("click", (event) => {
       event.preventDefault();
-      updateURL(`/${username}/${repositoryName}/index.html`);
+      updateURL(
+        `/${username}/${repositoryName}${
+          isDetailProductsPage() ? "" : "/views"
+        }/index.html`
+      );
     });
 
     productsLink.addEventListener("click", (event) => {
       event.preventDefault();
-      updateURL(`/${username}/${repositoryName}/views/products.html`);
+      updateURL(
+        `/${username}/${repositoryName}${
+          isDetailProductsPage() ? "" : "/views"
+        }/products.html`
+      );
     });
 
     aboutLink.addEventListener("click", (event) => {
       event.preventDefault();
-      updateURL(`/${username}/${repositoryName}/views/about.html`);
+      updateURL(
+        `/${username}/${repositoryName}${
+          isDetailProductsPage() ? "" : "/views"
+        }/about.html`
+      );
     });
+
+    function isDetailProductsPage() {
+      const currentPage = window.location.pathname;
+      return currentPage.endsWith("/detail-products.html");
+    }
 
     const currentPage = window.location.pathname;
 
