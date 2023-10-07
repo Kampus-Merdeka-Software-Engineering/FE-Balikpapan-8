@@ -786,7 +786,7 @@ button[type="submit"]:active {
     }
 
     textarea {
-        width: 660px;
+        max-width: 660px;
     }
 }
 
@@ -942,7 +942,7 @@ button[type="submit"]:active {
     }
 
     textarea {
-        width: 390px;
+        max-width: 390px;
     }
 }
 
