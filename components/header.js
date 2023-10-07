@@ -500,6 +500,18 @@ class Header extends HTMLElement {
   } else if (currentPage.endsWith("about.html")) {
     aboutLink.classList.add("active");
   }
+
+  // Event listener untuk mengubah halaman saat tautan "Products" diklik
+productsLink.addEventListener("click", function (e) {
+  e.preventDefault();
+
+  // Dapatkan URL tanpa parameter query
+  const newURL = `/${username}/${repositoryName}/products.html`;
+
+  // Pindah ke halaman baru
+  window.location.href = newURL;
+});
+
 }
 }
 

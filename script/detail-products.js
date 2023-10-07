@@ -1,8 +1,5 @@
 const API_BASE_URL = "https://be-balikpapan-8-production.up.railway.app";
 
-// Mengganti URL dengan URL tanpa query string
-history.pushState(null, null, "/");
-
 // Fungsi untuk memuat data produk dari API menggunakan fetch
 function loadProductData(callback) {
   // Mengambil id produk dari URL
