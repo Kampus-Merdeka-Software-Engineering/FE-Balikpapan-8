@@ -404,8 +404,8 @@ class Header extends HTMLElement {
         <div class="navbar-links">
         <ul>
         <li><a href="/${username}/${repositoryName}/index.html" id="homeLink">Home</a></li>
-        <li><a href="/${username}/${repositoryName}/views/products.html" id="productsLink">Products</a></li>
-        <li><a href="/${username}/${repositoryName}/views/about.html" id="aboutLink">About</a></li>
+        <li><a href="/${username}/${repositoryName}/products.html" id="productsLink">Products</a></li>
+        <li><a href="/${username}/${repositoryName}/about.html" id="aboutLink">About</a></li>
       </ul>
     </div>
     
@@ -478,7 +478,7 @@ class Header extends HTMLElement {
       const menuItemURL = menuItem.getAttribute("href");
       const isActive =
         (isDetailPage && menuItemURL.endsWith(".html")) ||
-        (!isDetailPage && menuItemURL.endsWith("/views/index.html"));
+        (!isDetailPage && menuItemURL.endsWith("/index.html"));
 
       if (isActive) {
         menuItem.classList.add("active");

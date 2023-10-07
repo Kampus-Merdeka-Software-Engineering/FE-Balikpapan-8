@@ -79,7 +79,7 @@ fetch(`${API_BASE_URL}/index`) // Fetch data from API endpoint
 
       // Create link for Explore button based on product type
       const exploreButtonContainer = document.createElement("a");
-      exploreButtonContainer.href = `./views/products.html?type=${encodeURIComponent(
+      exploreButtonContainer.href = `./products.html?type=${encodeURIComponent(
         product.product_type
       )}`;
 
@@ -104,7 +104,7 @@ fetch(`${API_BASE_URL}/index`) // Fetch data from API endpoint
         const product = products[parseInt(productIndex)];
 
         // Redirect to the products page with the product type
-        window.location.href = `./views/products.html?type=${encodeURIComponent(
+        window.location.href = `./products.html?type=${encodeURIComponent(
           product.product_type
         )}`;
       });

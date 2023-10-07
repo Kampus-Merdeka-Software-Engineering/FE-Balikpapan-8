@@ -2,7 +2,7 @@ const API_BASE_URL = "https://be-balikpapan-8-production.up.railway.app";
 
 function fillContent() {
   // Fetch data from the API
-  fetch(`${API_BASE_URL}/views/about`)
+  fetch(`${API_BASE_URL}/about`)
     .then((response) => response.json())
     .then((data) => {
       const membersData = data.members; // Access the "members" array in the response

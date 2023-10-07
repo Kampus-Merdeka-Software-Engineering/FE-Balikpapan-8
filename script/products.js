@@ -25,7 +25,7 @@ menuProducts.addEventListener("click", function (event) {
 });
 // Function to load product data
 function loadProductData(productType) {
-  let url = `${API_BASE_URL}/views/productsByType`;
+  let url = `${API_BASE_URL}/productsByType`;
 
   // Append type parameter to the URL if specified
   if (productType) {
@@ -183,7 +183,7 @@ function filterProducts(products, productType) {
 
 // Function to redirect to the detail page
 function redirectToDetailPage(productId) {
-  var detailPageURL = `https://kampus-merdeka-software-engineering.github.io/FE-Balikpapan-8/views/detail-products.html?productId=${encodeURIComponent(productId)}`;
+  var detailPageURL = `https://kampus-merdeka-software-engineering.github.io/FE-Balikpapan-8/detail-products.html?productId=${encodeURIComponent(productId)}`;
   window.location.href = detailPageURL;
 }
 

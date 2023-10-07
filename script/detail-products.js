@@ -17,7 +17,7 @@ function loadProductData(callback) {
   } else {
     // Fetch data dari API
     fetch(
-      `${API_BASE_URL}/views/detail-products.html?productId=${encodeURIComponent(
+      `${API_BASE_URL}/detail-products.html?productId=${encodeURIComponent(
         productId
       )}`
     )

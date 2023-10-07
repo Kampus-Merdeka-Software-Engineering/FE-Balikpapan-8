@@ -255,7 +255,7 @@ footer {
         <ul>
           <li class="menu-header">Company</li>
           <ul class="list-menu">
-            <li><a href="../views/about.html">About</a></li>
+            <li><a href="./about.html">About</a></li>
             <li><a href="#">Terms & Conditions</a></li>
             <li><a href="#">Privacy Policy</a></li>
           </ul>
@@ -299,7 +299,7 @@ footer {
 
     // Function to load product data from the API
     function loadProductData(productType) {
-      let url = `${API_BASE_URL}/views/productsByType`;
+      let url = `${API_BASE_URL}/productsByType`;
       if (productType) {
         url += `?type=${encodeURIComponent(productType)}`;
       }
@@ -323,7 +323,7 @@ footer {
         event.preventDefault();
         const productType = event.currentTarget.textContent;
         if (productType) {
-          window.location.href = `../views/products.html?type=${encodeURIComponent(
+          window.location.href = `./products.html?type=${encodeURIComponent(
             productType
           )}`;
         }
@@ -338,7 +338,7 @@ footer {
         event.preventDefault();
         const productType = event.currentTarget.textContent;
         if (productType) {
-          window.location.href = `../views/products.html?type=${encodeURIComponent(
+          window.location.href = `./products.html?type=${encodeURIComponent(
             productType
           )}`;
         }
