@@ -3,6 +3,20 @@ class Header extends HTMLElement {
     super();
   }
 
+   getRepositoryName() {
+    const currentURL = window.location.href;
+    const parts = currentURL.split('/');
+    const username = parts[3];
+    const repositoryName = parts[4];
+    return `${username}/${repositoryName}`;
+  }
+
+  navigateToPage(endpoint) {
+    const repositoryName = this.getRepositoryName();
+    const pageURL = `https://${repositoryName}/FE-Balikpapan-8/${endpoint}`;
+    window.location.href = pageURL;
+  }
+
   async connectedCallback() {
     // const repositoryName = getRepositoryName();
     this.innerHTML = `
