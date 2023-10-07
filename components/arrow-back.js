@@ -49,7 +49,7 @@ class ArrowBack extends HTMLElement {
     </style>
     <!-- ArrowBack -->
     <div class="arrow-back">
-        <a href="/${username}/${repositoryName}/products.html"><i class="fas fa-arrow-left"></i></a>
+        <a href="products.html"><i class="fas fa-arrow-left"></i></a>
     </div>
     <!-- End ArrowBack -->
     

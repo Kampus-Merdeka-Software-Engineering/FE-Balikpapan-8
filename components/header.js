@@ -4,7 +4,6 @@ class Header extends HTMLElement {
   }
 
   async connectedCallback() {
-    const currentPage = window.location.href;
     this.innerHTML = `
       <style>
       .navbar {
@@ -469,17 +468,21 @@ class Header extends HTMLElement {
     }
 
     // Menambahkan kelas "active" ke tautan sesuai dengan halaman yang sedang aktif
+    const currentPage = window.location.href;
     const { username, repositoryName } = getRepositoryName();
-    if (currentPage.endsWith(`${username}/${repositoryName}/index.html`)) {
-      homeLink.classList.add("active");
-    } else if (
-      currentPage.endsWith(`${username}/${repositoryName}/products.html`)
-    ) {
-      productsLink.classList.add("active");
-    } else if (
-      currentPage.endsWith(`${username}/${repositoryName}/about.html`)
-    ) {
-      aboutLink.classList.add("active");
+    const links = [
+      { id: "homeLink", url: `./index.html` },
+      { id: "productsLink", url: `./products.html` },
+      { id: "aboutLink", url: `./about.html` },
+    ];
+    for (const link of links) {
+      const linkElement = this.querySelector(`#${link.id}`);
+      if (
+        linkElement &&
+        currentPage.endsWith(`${username}/${repositoryName}/${link.url}`)
+      ) {
+        linkElement.classList.add("active");
+      }
     }
   }
 }
