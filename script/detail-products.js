@@ -98,6 +98,9 @@ window.onload = function () {
       alert("Produk tidak ditemukan.");
     }
   });
+
+  // Update the URL without reloading the page
+  history.replaceState(null, null, window.location.pathname);
 };
 // Script Description and review
 document
