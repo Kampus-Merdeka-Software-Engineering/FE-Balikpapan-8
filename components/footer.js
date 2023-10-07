@@ -268,7 +268,7 @@ footer {
             <li><a href="#">Jeans</a></li>
             <li><a href="#">Hoodie</a></li>
             <li><a href="#">T-Shirt</a></li>
-            <li><a href="#">Coats</a></li>
+            <li><a href="#">Coat</a></li>
           </ul>
         </ul>
       </div>
