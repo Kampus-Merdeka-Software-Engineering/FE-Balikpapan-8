@@ -507,4 +507,35 @@ class Header extends HTMLElement {
   }
 }
 
+
+// Function to extract the repository name from the GitHub Pages URL
+function getRepositoryName() {
+  const currentURL = window.location.href;
+  const parts = currentURL.split('/');
+  const username = parts[3];
+  const repositoryName = parts[4];
+  return `${username}/${repositoryName}`;
+}
+
+// Function to handle navigation when a navbar link is clicked
+function navigateToPage(endpoint) {
+  const repositoryName = getRepositoryName();
+  const pageURL = `https://${repositoryName}/${endpoint}`;
+  window.location.href = pageURL;
+}
+
+// Add event listeners to navbar links
+document.getElementById('homeLink').addEventListener('click', function() {
+  navigateToPage('index.html');
+});
+
+document.getElementById('productsLink').addEventListener('click', function() {
+  navigateToPage('views/products.html');
+});
+
+document.getElementById('aboutLink').addEventListener('click', function() {
+  navigateToPage('views/about.html');
+});
+
+
 customElements.define("header-component", Header);
