@@ -183,7 +183,7 @@ function filterProducts(products, productType) {
 
 // Function to redirect to the detail page
 function redirectToDetailPage(productId) {
-  var detailPageURL = `detail-products.html?productId=${encodeURIComponent(productId)}`;
+  var detailPageURL = `https://kampus-merdeka-software-engineering.github.io/FE-Balikpapan-8/views/detail-products.html?productId=${encodeURIComponent(productId)}`;
   window.location.href = detailPageURL;
 }
 
