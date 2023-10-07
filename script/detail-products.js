@@ -97,19 +97,26 @@ function populateProductDetails(product) {
     .join("");
   productReviews.innerHTML = reviewsList;
 }
+
+// Fungsi untuk mengganti halaman tanpa memuat ulang
+function changePage(url) {
+  window.history.pushState({}, "", url);
+}
+
+
 // Memanggil fungsi untuk mengisi data produk ketika halaman dimuat
 window.onload = function () {
   // Memanggil loadProductData untuk mendapatkan data produk dari API
   loadProductData(function (product) {
     if (product) {
       populateProductDetails(product);
+      // Update URL dengan ID produk yang dipilih
+      updateURL(product.id);
     } else {
-      // Tampilkan pesan jika produk tidak ditemukan
+      // Tampilkan pesan jika produk tidak ditemukan.
       alert("Produk tidak ditemukan.");
     }
   });
-
-
 };
 // Script Description and review (tidak perlu mempengaruhi URL di sini)
 document
@@ -133,7 +140,7 @@ document
       .classList.remove("active");
     this.classList.add("active");
   });
-  
+
 // Fungsi untuk mendapatkan nilai parameter dari URL berdasarkan nama parameter
 function getParameterByName(name, url = window.location.href) {
   name = name.replace(/[\[\]]/g, "\\$&");
