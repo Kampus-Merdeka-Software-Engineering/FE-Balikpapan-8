@@ -1,4 +1,5 @@
 const API_BASE_URL = "https://be-balikpapan-8-production.up.railway.app";
+let cachedProductData;
 
 // Fungsi untuk memuat data produk dari API menggunakan fetch
 function loadProductData(callback) {
@@ -10,20 +11,29 @@ function loadProductData(callback) {
     console.error("Product ID is missing in the URL.");
     return;
   }
-// Fetch data dari API
-fetch(`${API_BASE_URL}/views/detail-products.html?productId=${encodeURIComponent(productId)}`)
-.then(function (response) {
-  if (!response.ok) {
-    throw new Error(`HTTP error! Status: ${response.status}`);
+  // Jika data produk sudah di-cache, gunakan data tersebut
+  if (cachedProductData) {
+    callback(cachedProductData);
+  } else {
+    // Fetch data dari API
+    fetch(
+      `${API_BASE_URL}/views/detail-products.html?productId=${encodeURIComponent(
+        productId
+      )}`
+    )
+      .then(function (response) {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then(function (productData) {
+        callback(productData.data);
+      })
+      .catch(function (error) {
+        console.error("Error fetching product data:", error);
+      });
   }
-  return response.json();
-})
-.then(function (productData) {
-  callback(productData.data);
-})
-.catch(function (error) {
-  console.error('Error fetching product data:', error);
-});
 }
 // Fungsi untuk mengisi data produk ke dalam elemen HTML
 function populateProductDetails(product) {
@@ -45,12 +55,12 @@ function populateProductDetails(product) {
   // Membuat tampilan rating berdasarkan rating produk
   const stars = Math.floor(product.rating);
   const halfStar = product.rating % 1 !== 0;
-  let ratingHTML = '';
+  let ratingHTML = "";
   for (let i = 0; i < stars; i++) {
-      ratingHTML += '<i class="fas fa-star"></i>';
+    ratingHTML += '<i class="fas fa-star"></i>';
   }
   if (halfStar) {
-      ratingHTML += '<i class="fas fa-star-half-alt"></i>';
+    ratingHTML += '<i class="fas fa-star-half-alt"></i>';
   }
   productRating.innerHTML = ratingHTML;
 
@@ -64,22 +74,22 @@ function populateProductDetails(product) {
     .join("");
   sizeDropdown.innerHTML = sizeOptions;
 
-   // Mengisi jumlah produk
-   const quantityInput = document.getElementById("quantity");
-   const decreaseButton = document.getElementById("decrease-button");
-   const increaseButton = document.getElementById("increase-button");
- 
-   decreaseButton.addEventListener("click", () => {
-     const currentQuantity = parseInt(quantityInput.value, 10);
-     if (currentQuantity > 1) {
-       quantityInput.value = currentQuantity - 1;
-     }
-   });
- 
-   increaseButton.addEventListener("click", () => {
-     const currentQuantity = parseInt(quantityInput.value, 10);
-     quantityInput.value = currentQuantity + 1;
-   });
+  // Mengisi jumlah produk
+  const quantityInput = document.getElementById("quantity");
+  const decreaseButton = document.getElementById("decrease-button");
+  const increaseButton = document.getElementById("increase-button");
+
+  decreaseButton.addEventListener("click", () => {
+    const currentQuantity = parseInt(quantityInput.value, 10);
+    if (currentQuantity > 1) {
+      quantityInput.value = currentQuantity - 1;
+    }
+  });
+
+  increaseButton.addEventListener("click", () => {
+    const currentQuantity = parseInt(quantityInput.value, 10);
+    quantityInput.value = currentQuantity + 1;
+  });
 
   // Mengisi ulasan produk
   const reviewsList = product.reviews
