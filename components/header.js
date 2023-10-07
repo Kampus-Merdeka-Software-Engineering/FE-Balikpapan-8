@@ -4,7 +4,7 @@ class Header extends HTMLElement {
   }
 
   async connectedCallback() {
-    // const repositoryName = getRepositoryName();
+    const repositoryName = getRepositoryName();
     this.innerHTML = `
       <style>
       .navbar {
