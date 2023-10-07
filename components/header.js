@@ -471,25 +471,20 @@ class Header extends HTMLElement {
       });
     }
 
-    // Mendapatkan tautan-tautan navbar
-    const homeLink = this.querySelector("#homeLink");
-    const productsLink = this.querySelector("#productsLink");
-    const aboutLink = this.querySelector("#aboutLink");
-
     // Event listener untuk mengubah halaman saat tautan diklik
     homeLink.addEventListener("click", function (e) {
       e.preventDefault();
-      window.location.href = `/${username}/${repositoryName}/index.html`;
+      window.location.href = `/index.html`; // Menghilangkan "${username}/${repositoryName}" dari URL
     });
 
     productsLink.addEventListener("click", function (e) {
       e.preventDefault();
-      window.location.href = `/${username}/${repositoryName}/products.html`;
+      window.location.href = `/products.html`; // Menghilangkan "${username}/${repositoryName}" dari URL
     });
 
     aboutLink.addEventListener("click", function (e) {
       e.preventDefault();
-      window.location.href = `/${username}/${repositoryName}/about.html`;
+      window.location.href = `/about.html`; // Menghilangkan "${username}/${repositoryName}" dari URL
     });
 
     // Menambahkan kelas "active" ke tautan sesuai dengan halaman yang sedang aktif
@@ -500,17 +495,6 @@ class Header extends HTMLElement {
     } else if (currentPage.endsWith("about.html")) {
       aboutLink.classList.add("active");
     }
-
-    // Event listener untuk mengubah halaman saat tautan "Products" diklik
-    productsLink.addEventListener("click", function (e) {
-      e.preventDefault();
-
-      // Dapatkan URL tanpa parameter query
-      const newURL = `/${username}/${repositoryName}/products.html`;
-
-      // Pindah ke halaman baru
-      window.location.href = newURL;
-    });
   }
 }
 
