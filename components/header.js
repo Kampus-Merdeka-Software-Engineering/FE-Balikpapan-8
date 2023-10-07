@@ -433,88 +433,85 @@ class Header extends HTMLElement {
 
     </header>
       `;
-    // Move the event listener inside the connectedCallback
-    document.addEventListener("DOMContentLoaded", () => {
-      const toggleButton = document.getElementsByClassName("toggle-button")[0];
-      const navbarLinks = document.getElementsByClassName("navbar-links")[0];
-      const searchAndButton =
-        document.getElementsByClassName("search-and-button")[0];
-
-      if (toggleButton && navbarLinks !== null) {
-        toggleButton.addEventListener("click", () => {
-          navbarLinks.classList.toggle("active");
-
-          // Check if searchAndButton exists before toggling its class
-          if (searchAndButton !== null) {
-            searchAndButton.classList.toggle("active");
-          }
-
-          toggleButton.classList.toggle("active");
-        });
-      }
-    });
-
-    var burgerMenu = document.getElementById("burger-menu");
-    var overlay = document.getElementById("menu");
-    if (burgerMenu && overlay !== null) {
-      burgerMenu.addEventListener("click", function () {
-        this.classList.toggle("close");
-        overlay.classList.toggle("overlay");
-
-        // Check if navbarLinks exists before toggling its class
-        if (navbarLinks !== null) {
-          navbarLinks.classList.remove("active");
-        }
-
-        // Check if searchAndButton exists before toggling its class
-        if (searchAndButton !== null) {
-          searchAndButton.classList.remove("active");
+      document.addEventListener("DOMContentLoaded", () => {
+        const toggleButton = this.querySelector(".toggle-button");
+        const navbarLinks = this.querySelector(".navbar-links");
+        const searchAndButton = this.querySelector(".search-and-button");
+  
+        if (toggleButton && navbarLinks !== null) {
+          toggleButton.addEventListener("click", () => {
+            navbarLinks.classList.toggle("active");
+  
+            // Check if searchAndButton exists before toggling its class
+            if (searchAndButton !== null) {
+              searchAndButton.classList.toggle("active");
+            }
+  
+            toggleButton.classList.toggle("active");
+          });
         }
       });
-    }
-
-    // Define an array of menu items
-    const menuItems = document.querySelectorAll(".navbar-links li a");
-
-    // Get the current page URL
-    const currentPageURL = window.location.href;
-
-    // Loop through the menu items and check if their href matches the current URL
-    menuItems.forEach((menuItem) => {
-      const menuItemURL = menuItem.getAttribute("href");
-
-      if (currentPageURL.endsWith(menuItemURL)) {
-        menuItem.classList.add("active");
-      } else {
-        menuItem.classList.remove("active");
+  
+      var burgerMenu = this.querySelector("#burger-menu");
+      var overlay = document.getElementById("menu");
+      if (burgerMenu && overlay !== null) {
+        burgerMenu.addEventListener("click", function () {
+          this.classList.toggle("close");
+          overlay.classList.toggle("overlay");
+  
+          // Check if navbarLinks exists before toggling its class
+          if (navbarLinks !== null) {
+            navbarLinks.classList.remove("active");
+          }
+  
+          // Check if searchAndButton exists before toggling its class
+          if (searchAndButton !== null) {
+            searchAndButton.classList.remove("active");
+          }
+        });
       }
-    });
-
-    // Add "active" class to the link corresponding to the active page
-    const homeLink = document.querySelector("#homeLink");
-    const productsLink = document.querySelector("#productsLink");
-    const aboutLink = document.querySelector("#aboutLink");
-
-    const currentPage = window.location.pathname;
-
-    if (currentPage.endsWith("index.html")) {
-      homeLink.classList.add("active");
-    } else if (currentPage.endsWith("products.html")) {
-      productsLink.classList.add("active");
-    } else if (currentPage.endsWith("about.html")) {
-      aboutLink.classList.add("active");
+  
+      // Define an array of menu items
+      const menuItems = this.querySelectorAll(".navbar-links li a");
+  
+      // Get the current page URL
+      const currentPageURL = window.location.href;
+  
+      // Loop through the menu items and check if their href matches the current URL
+      menuItems.forEach((menuItem) => {
+        const menuItemURL = menuItem.getAttribute("href");
+  
+        if (currentPageURL.endsWith(menuItemURL)) {
+          menuItem.classList.add("active");
+        } else {
+          menuItem.classList.remove("active");
+        }
+      });
+  
+      // Add "active" class to the link corresponding to the active page
+      const homeLink = this.querySelector("#homeLink");
+      const productsLink = this.querySelector("#productsLink");
+      const aboutLink = this.querySelector("#aboutLink");
+  
+      const currentPage = window.location.pathname;
+  
+      if (currentPage.endsWith("index.html")) {
+        homeLink.classList.add("active");
+      } else if (currentPage.endsWith("products.html")) {
+        productsLink.classList.add("active");
+      } else if (currentPage.endsWith("about.html")) {
+        aboutLink.classList.add("active");
+      }
     }
   }
-}
-
-
-function getRepositoryName() {
-  const currentURL = window.location.href;
-  const parts = currentURL.split('/');
-  const username = parts[3];
-  const repositoryName = parts[4];
-  return { username, repositoryName };
-}
+  
+  function getRepositoryName() {
+    const currentURL = window.location.href;
+    const parts = currentURL.split('/');
+    const username = parts[3];
+    const repositoryName = parts[4];
+    return { username, repositoryName };
+  }
 
 
 
