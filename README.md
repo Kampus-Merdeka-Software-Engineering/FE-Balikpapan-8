@@ -41,7 +41,7 @@ Proyek "RobinCode" dibangun dengan teknologi terkini, termasuk:
 2. Install dependensi dengan menjalankan perintah `npm install`.
 3. Jalankan proyek dengan perintah `npm start`.
 
-[![Buka Proyek](https://img.shields.io/badge/Buka%20Proyek-RobinCode-brightgreen)](https://kampus-merdeka-software-engineering.github.io/front-end-capstone-project-section-balikpapan-group-8/)
+[![Buka Proyek](https://img.shields.io/badge/Buka%20Proyek-RobinCode-brightgreen)](https://kampus-merdeka-software-engineering.github.io/FE-Balikpapan-8/)
 
 ## 👨‍💻 Tim Pengembangan
 
