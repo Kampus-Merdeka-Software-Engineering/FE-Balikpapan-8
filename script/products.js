@@ -187,6 +187,7 @@ function redirectToDetailPage(productId) {
   window.location.href = detailPageURL;
 }
 
+
 function getProductTypeFromUrl() {
   const urlParams = new URLSearchParams(window.location.search);
   return urlParams.get('type') || null;
