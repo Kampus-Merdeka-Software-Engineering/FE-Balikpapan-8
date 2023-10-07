@@ -403,10 +403,10 @@ class Header extends HTMLElement {
 
         <div class="navbar-links">
         <ul>
-            <li><a href="${username}/${repositoryName}/index.html" id="homeLink">Home</a></li>
-            <li><a href="${username}/${repositoryName}/views/products.html" id="productsLink">Products</a></li>
-            <li><a href="${username}/${repositoryName}/views/about.html" id="aboutLink">About</a></li>
-        </ul>
+        <li><a href="/${username}/${repositoryName}/index.html" id="homeLink">Home</a></li>
+        <li><a href="/${username}/${repositoryName}/views/products.html" id="productsLink">Products</a></li>
+        <li><a href="/${username}/${repositoryName}/views/about.html" id="aboutLink">About</a></li>
+      </ul>
     </div>
     
 
