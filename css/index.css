@@ -785,8 +785,13 @@ button[type="submit"]:active {
         padding: 0 80px;
     }
 
+    #contact-form textarea {
+        width: 100%;
+
+    }
+
     textarea {
-        width: 660px;
+        min-width: 660px;
     }
 }
 
@@ -942,7 +947,7 @@ button[type="submit"]:active {
     }
 
     textarea {
-        width: 390px;
+        max-width: 300px;
     }
 }
 
@@ -957,16 +962,16 @@ button[type="submit"]:active {
     -ms-border-radius: 12px;
     -o-border-radius: 12px;
 }
-  
-  .robin-swal-title {
+
+.robin-swal-title {
     color: #333;
-  }
-  
-  .robin-swal-content {
+}
+
+.robin-swal-content {
     color: #555;
-  }
-  
-  .robin-swal-confirm-button {
+}
+
+.robin-swal-confirm-button {
     background-color: var(--accentColorDark);
     color: var(--primaryColor);
     border: 1px solid var(--accentColorDark);
@@ -976,11 +981,10 @@ button[type="submit"]:active {
     font-weight: 600;
     letter-spacing: 0.5px;
     transition: background-color 0.3s ease, color 0.3s ease;
-  }
-  
-  .robin-swal-confirm-button:hover {
+}
+
+.robin-swal-confirm-button:hover {
     background-color: var(--primaryColor);
     color: var(--accentColorDark);
     transition: background-color 0.3s ease, color 0.3s ease;
-  }
-  
+}
