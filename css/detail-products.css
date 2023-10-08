@@ -246,6 +246,11 @@ html, body {
     .box-menu {
         margin-top: 16px;
     }
+
+    .box-content {
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 /* Responsiveness for Tablets */

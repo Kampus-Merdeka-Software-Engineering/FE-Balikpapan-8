@@ -91,26 +91,35 @@ html, body {
     flex-wrap: wrap;
     justify-content: center;
     align-items: flex-start;
-    margin: 20px 0;
+    margin: 20px 60px;
 }
 
 /* Isi produk */
 .card-products {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
+    width: 300px;
+    margin-left: 10px;
+    margin-right: 10px;
     margin-bottom: 50px;
     padding: 0px 12px;
     position: relative;
 }
 
 .products img {
-    width: 312px;
-    height: 400px;
+    width: 290px;
+    height: 380px;
+    border-radius: 12px;
     transition: all 0.3s ease-in-out;
     -webkit-transition: all 0.3s ease-in-out;
     -moz-transition: all 0.3s ease-in-out;
     -ms-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    -ms-border-radius: 12px;
+    -o-border-radius: 12px;
 }
 
 /* Ikon */
