@@ -139,8 +139,10 @@ const container = document.querySelector(".swiper");
 // Get screen width
 const screenWidth = window.innerWidth;
 
-// Untuk mengatur lebar maksimum kontainer
+// To make the container responsive, set the max-width of the container to the screen width
 container.style.maxWidth = `${screenWidth}px`;
+
+
 // Handle form submission
 const form = document.querySelector("#contact-form");
 form.addEventListener("submit", async (event) => {

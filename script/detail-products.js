@@ -31,7 +31,7 @@ function loadProductData(callback) {
     });
 }
 
-// Fungsi untuk mengisi data produk ke dalam elemen HTML
+// Function for populating product details
 function populateProductDetails(product) {
   const productImage = document.getElementById("product-image");
   const productName = document.getElementById("product-name");
@@ -93,6 +93,8 @@ function populateProductDetails(product) {
     .join("");
   productReviews.innerHTML = reviewsList;
 }
+
+
 // Memanggil fungsi untuk mengisi data produk ketika halaman dimuat
 window.onload = function () {
   // Memanggil loadProductData untuk mendapatkan data produk dari API

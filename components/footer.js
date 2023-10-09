@@ -297,23 +297,34 @@ footer {
   <!-- End Footer -->
       `;
 
-    // Function to load product data from the API
-    function loadProductData(productType) {
-      let url = `${API_BASE_URL}/productsByType`;
-      if (productType) {
-        url += `?type=${encodeURIComponent(productType)}`;
-      }
+   // Function to load product data
+function loadProductData(productType) {
+  let url = `${API_BASE_URL}/productsByType`;
 
-      // Fetch product data from the API
-      fetch(url)
-        .then((response) => response.json())
-        .then((data) => {
-          renderProductData(data);
-        })
-        .catch((error) => {
-          console.error("Error fetching product data:", error);
-        });
-    }
+  // Append type parameter to the URL if specified
+  if (productType) {
+    // Construct URL with type parameter
+    url += `?type=${encodeURIComponent(productType)}`;
+  }
+
+  fetch(url)
+    .then(function (response) {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then(function (productData) {
+      // Update active class on menu item
+      updateActiveMenu(productType);
+
+      // Call the function in products.js to display products
+      displayProducts(productData.data);
+    })
+    .catch(function (error) {
+      console.error("Error fetching product data:", error);
+    });
+}
 
     const catalog1Items = document.querySelectorAll(
       ".category-catalog-1 .list-menu a"

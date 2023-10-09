@@ -23,6 +23,8 @@ menuProducts.addEventListener("click", function (event) {
     loadProductData(productType);
   }
 });
+
+
 // Function to load product data
 function loadProductData(productType) {
   let url = `${API_BASE_URL}/productsByType`;
@@ -66,7 +68,7 @@ function updateActiveMenu(productType) {
 
 
 
-// Fungsi untuk membuat elemen produk HTML dari data JSON
+// Function to create product element from product data
 function createProductElement(product) {
   var productCard = document.createElement("div");
   productCard.className = "card-products";

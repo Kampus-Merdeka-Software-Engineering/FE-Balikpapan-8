@@ -1,5 +1,7 @@
 const API_BASE_URL = "https://be-balikpapan-8-production.up.railway.app";
 
+
+// function to fill content member
 function fillContent() {
   // Fetch data from the API
   fetch(`${API_BASE_URL}/about`)
