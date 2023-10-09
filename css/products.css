@@ -125,6 +125,9 @@ html, body {
 /* Ikon */
 .hover-icons {
     position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -158,6 +161,9 @@ html, body {
     font-size: 26px;
     color: var(--primaryColor);
     padding: 0px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
     transition: transform 0.3s ease;
     -webkit-transition: transform 0.3s ease;
