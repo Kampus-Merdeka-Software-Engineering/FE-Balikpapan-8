@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://localhost:3000";
+const API_BASE_URL = "mysql://root:ykkhmrdn152833@localhost:3306/RobinCode";
 const productContainer = document.getElementById("product-container");
 const menuProducts = document.querySelector(".menu-products");
 
