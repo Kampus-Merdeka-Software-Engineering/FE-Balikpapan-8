@@ -1,4 +1,4 @@
-const API_BASE_URL = "https://be-balikpapan-8-production.up.railway.app";
+const API_BASE_URL = "http://localhost:3000";
 const productContainer = document.getElementById("product-container");
 const menuProducts = document.querySelector(".menu-products");
 
