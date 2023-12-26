@@ -1,4 +1,4 @@
-const API_BASE_URL = "https://be-balikpapan-8-production.up.railway.app";
+const API_BASE_URL = "mysql://root:ykkhmrdn152833@localhost:3306/robincode";
 
 // Fungsi untuk memuat data produk dari API menggunakan fetch
 function loadProductData(callback) {
