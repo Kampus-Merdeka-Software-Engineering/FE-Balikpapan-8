@@ -1,4 +1,4 @@
-const API_BASE_URL = "mysql://root:ykkhmrdn152833@localhost:3306/robincode";
+const API_BASE_URL = "http://localhost:3000";
 
 // Fungsi untuk memuat data produk dari API menggunakan fetch
 function loadProductData(callback) {

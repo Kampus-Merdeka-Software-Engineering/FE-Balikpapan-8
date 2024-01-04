@@ -1,4 +1,4 @@
-const API_BASE_URL = "mysql://root:ykkhmrdn152833@localhost:3306/robincode";
+const API_BASE_URL = "http://localhost:3000";
 
 fetch(`${API_BASE_URL}/index`) // Fetch data from API endpoint
   .then((response) => {

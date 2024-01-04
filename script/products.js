@@ -1,4 +1,5 @@
 const API_BASE_URL = "http://localhost:3000";
+const PAGE_BASE_URL = "http://127.0.0.1:5501";
 const productContainer = document.getElementById("product-container");
 const menuProducts = document.querySelector(".menu-products");
 
@@ -185,7 +186,7 @@ function filterProducts(products, productType) {
 
 // Function to redirect to the detail page
 function redirectToDetailPage(productId) {
-  var detailPageURL = `https://kampus-merdeka-software-engineering.github.io/FE-Balikpapan-8/detail-products.html?productId=${encodeURIComponent(productId)}`;
+  var detailPageURL = `${PAGE_BASE_URL}/detail-products.html?productId=${encodeURIComponent(productId)}`;
   window.location.href = detailPageURL;
 }
 
